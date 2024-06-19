@@ -1,0 +1,6 @@
+[submodule "ForgeCraftEngine/spdlog"]
+	path = ForgeCraftEngine/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "ForgeCraftEngine/Vendor/spdlog"]
+	path = ForgeCraftEngine/Vendor/spdlog
+	url = https://github.com/gabime/spdlog
