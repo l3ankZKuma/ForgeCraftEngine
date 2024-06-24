@@ -4,3 +4,6 @@
 [submodule "ForgeCraftEngine/Vendor/spdlog"]
 	path = ForgeCraftEngine/Vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "ForgeCraftEngine/Vendor/GLFW/glfw"]
+	path = ForgeCraftEngine/Vendor/GLFW/glfw
+	url = https://github.com/glfw/glfw

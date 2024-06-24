@@ -34,12 +34,18 @@
     <ClInclude Include="src\ForgeCraft\Log.h">
       <Filter>ForgeCraft</Filter>
     </ClInclude>
+    <ClInclude Include="src\ForgeCraft\fcpch.h">
+      <Filter>ForgeCraft</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ForgeCraft\Application.cpp">
       <Filter>ForgeCraft</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Log.cpp">
+      <Filter>ForgeCraft</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\fcpch.cpp">
       <Filter>ForgeCraft</Filter>
     </ClCompile>
   </ItemGroup>

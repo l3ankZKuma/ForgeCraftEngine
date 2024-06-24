@@ -4,7 +4,9 @@
 #include"Core.h"
 #include"spdlog/spdlog.h"
 #include"spdlog/sinks/stdout_color_sinks.h"
-#include<memory>
+#include"spdlog/fmt/ostr.h"
+
+
 
 
 
@@ -57,3 +59,5 @@ namespace ForgeCraft {
 #define FC_INFO(...)   ::ForgeCraft::Log::GetClientLogger()->info(__VA_ARGS__)
 #define FC_TRACE(...)  ::ForgeCraft::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define FC_FATAL(...)  ::ForgeCraft::Log::GetClientLogger()->fatal(__VA_ARGS__)
+
+

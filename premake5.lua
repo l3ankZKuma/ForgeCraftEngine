@@ -11,6 +11,14 @@ workspace "ForgeCraftEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "ForgeCraftEngine/Vendor/GLFW/include"
+IncludeDir["spdlog"] = "ForgeCraftEngine/Vendor/spdlog/include"
+
+-- Ensure GLFW is included
+include "ForgeCraftEngine/Vendor/GLFW"
+
 -- ForgeCraftEngine Project
 project "ForgeCraftEngine"
     location "ForgeCraftEngine"
@@ -20,6 +28,10 @@ project "ForgeCraftEngine"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+
+    pchheader "fcpch.h"
+    pchsource "ForgeCraftEngine/src/fcpch.cpp"
+
     files
     {
         "%{prj.name}/src/**.h",
@@ -28,9 +40,18 @@ project "ForgeCraftEngine"
 
     includedirs
     {
-        "%{prj.name}/vendor/spdlog/include",
-        "%{prj.name}/src"
+        "%{prj.name}/src",
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.spdlog}"              
     }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib"
+    }
+
+
 
     filter "system:windows"
         cppdialect "C++20"

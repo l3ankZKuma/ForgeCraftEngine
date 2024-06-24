@@ -1,0 +1,15 @@
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\context.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\context.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\egl_context.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\egl_context.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\init.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\init.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\input.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\input.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\monitor.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\monitor.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\osmesa_context.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\osmesa_context.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\vulkan.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\vulkan.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\wgl_context.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\wgl_context.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\win32_init.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\win32_init.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\win32_joystick.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\win32_joystick.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\win32_monitor.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\win32_monitor.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\win32_thread.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\win32_thread.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\win32_time.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\win32_time.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\win32_window.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\win32_window.obj
+D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\src\window.c;D:\Project\GameEngine\ForgeCraftEngine\Vendor\GLFW\bin-int\Debug-windows-x86_64\GLFW\window.obj

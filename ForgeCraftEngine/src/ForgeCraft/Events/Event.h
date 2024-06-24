@@ -1,9 +1,8 @@
 #pragma once
 
+#include"ForgeCraft/fcpch.h"
 #include "ForgeCraft/Core.h"
-#include <iostream>
-#include <functional>
-#include <sstream>
+
 
 namespace ForgeCraft {
 

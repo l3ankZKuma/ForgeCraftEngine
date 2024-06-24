@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Core.h"
+#include"ForgeCraft/Log.h"
+#include"ForgeCraft/Events/ApplicationEvent.h"
 
 namespace ForgeCraft {
 
