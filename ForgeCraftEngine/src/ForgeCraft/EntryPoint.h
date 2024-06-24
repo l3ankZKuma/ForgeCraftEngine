@@ -19,7 +19,6 @@ int main(int argc,char **argv) {
 
 
 
-
   auto app = ForgeCraft::CreateApplication();
   app->Run();
   delete app;

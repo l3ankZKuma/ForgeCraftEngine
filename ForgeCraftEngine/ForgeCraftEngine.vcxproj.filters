@@ -4,6 +4,9 @@
     <Filter Include="ForgeCraft">
       <UniqueIdentifier>{486A1BF1-3422-5D3E-9D29-369A8900F82E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ForgeCraft\Events">
+      <UniqueIdentifier>{2CB5D9C4-98CB-D75A-E142-637C4D98A8E2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ForgeCraft.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\ForgeCraft\EntryPoint.h">
       <Filter>ForgeCraft</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Events\ApplicationEvent.h">
+      <Filter>ForgeCraft\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Events\Event.h">
+      <Filter>ForgeCraft\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Events\KeyEvent.h">
+      <Filter>ForgeCraft\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Events\MouseEvent.h">
+      <Filter>ForgeCraft\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\ForgeCraft\Log.h">
       <Filter>ForgeCraft</Filter>
