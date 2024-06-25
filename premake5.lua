@@ -13,13 +13,16 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
-IncludeDir["GLFW"] = "ForgeCraftEngine/Vendor/GLFW/include"
-IncludeDir["spdlog"] = "ForgeCraftEngine/Vendor/spdlog/include"
+IncludeDir["glad"] = "ForgeCraftEngine/vendor/glad/include"
+IncludeDir["GLFW"] = "ForgeCraftEngine/vendor/GLFW/include"
+IncludeDir["spdlog"] = "ForgeCraftEngine/vendor/spdlog/include"
 
--- Ensure GLFW is included
-include "ForgeCraftEngine/Vendor/GLFW"
+-- Include the projects
+group "Dependencies"
+    include "ForgeCraftEngine/vendor/GLFW"
+    include "ForgeCraftEngine/vendor/glad"
+group ""
 
--- ForgeCraftEngine Project
 project "ForgeCraftEngine"
     location "ForgeCraftEngine"
     kind "SharedLib"
@@ -27,7 +30,6 @@ project "ForgeCraftEngine"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
 
     pchheader "fcpch.h"
     pchsource "ForgeCraftEngine/src/fcpch.cpp"
@@ -41,27 +43,28 @@ project "ForgeCraftEngine"
     includedirs
     {
         "%{prj.name}/src",
+        "%{IncludeDir.glad}",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.spdlog}"              
     }
 
     links
     {
+        "glad",
         "GLFW",
         "opengl32.lib"
     }
 
-
-
     filter "system:windows"
         cppdialect "C++20"
-        staticruntime "On"
+        staticruntime "off"
         systemversion "latest"
 
         defines
         {
             "FC_PLATFORM_WINDOWS",
-            "FC_BUILD_DLL"
+            "FC_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands
@@ -71,17 +74,19 @@ project "ForgeCraftEngine"
 
     filter "configurations:Debug"
         defines "FC_DEBUG"
+        runtime "Debug"
         symbols "On"
 
     filter "configurations:Release"
         defines "FC_RELEASE"
+        runtime "Release"
         optimize "On"
 
     filter "configurations:Dist"
         defines "FC_DIST"
+        runtime "Release"
         optimize "On"
 
--- Sandbox Project
 project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
@@ -109,7 +114,7 @@ project "Sandbox"
 
     filter "system:windows"
         cppdialect "C++20"
-        staticruntime "On"
+        staticruntime "off"
         systemversion "latest"
 
         defines
@@ -119,12 +124,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "FC_DEBUG"
+        runtime "Debug"
         symbols "On"
 
     filter "configurations:Release"
         defines "FC_RELEASE"
+        runtime "Release"
         optimize "On"
 
     filter "configurations:Dist"
         defines "FC_DIST"
+        runtime "Release"
         optimize "On"

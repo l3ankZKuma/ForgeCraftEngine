@@ -6,12 +6,14 @@
 #include <utility>
 #include <algorithm>
 #include <functional>
-#include <string>
+#include <cstring>
 #include <sstream>
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
 #include<array>
+#include<numeric>
+
 
 // Meta-programming
 #include <type_traits>
@@ -26,3 +28,5 @@
 
 
 // Third Party
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>

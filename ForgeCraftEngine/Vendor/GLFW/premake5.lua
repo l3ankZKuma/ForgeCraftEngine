@@ -5,11 +5,6 @@ project "GLFW"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-
-    
-    pchheader "fcpch.h"
-    pchsource "ForgeCraftEngine/src/fcpch.cpp"
-
     files
     {
         "include/GLFW/glfw3.h",

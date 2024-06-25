@@ -7,6 +7,12 @@
     <Filter Include="ForgeCraft\Events">
       <UniqueIdentifier>{2CB5D9C4-98CB-D75A-E142-637C4D98A8E2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ForgeCraft.h" />
@@ -34,8 +40,14 @@
     <ClInclude Include="src\ForgeCraft\Log.h">
       <Filter>ForgeCraft</Filter>
     </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Window.h">
+      <Filter>ForgeCraft</Filter>
+    </ClInclude>
     <ClInclude Include="src\ForgeCraft\fcpch.h">
       <Filter>ForgeCraft</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\fcpch.cpp">
       <Filter>ForgeCraft</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

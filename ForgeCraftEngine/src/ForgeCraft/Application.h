@@ -3,6 +3,7 @@
 #include "Core.h"
 #include"ForgeCraft/Log.h"
 #include"ForgeCraft/Events/ApplicationEvent.h"
+#include"ForgeCraft/Window.h"
 
 namespace ForgeCraft {
 
@@ -10,12 +11,21 @@ namespace ForgeCraft {
   {
     public:
 
-    Application(){}
-    
-    virtual ~Application() = default;
+    Application();
+    virtual ~Application();
 
+
+    //Method
     void Run();
+    void OnEvent(Event& e);
+    
+  private:
 
+    Window *m_window;
+
+    bool m_running{ true };
+
+    bool OnWindowClose(WindowCloseEvent& e);
 
   };
 
