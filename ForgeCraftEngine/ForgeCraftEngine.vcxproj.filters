@@ -4,6 +4,9 @@
     <Filter Include="ForgeCraft">
       <UniqueIdentifier>{486A1BF1-3422-5D3E-9D29-369A8900F82E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ForgeCraft\Core">
+      <UniqueIdentifier>{A03B3AC8-0CC7-A78C-15D8-2A8181E2038D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ForgeCraft\Events">
       <UniqueIdentifier>{2CB5D9C4-98CB-D75A-E142-637C4D98A8E2}</UniqueIdentifier>
     </Filter>
@@ -21,6 +24,12 @@
     </ClInclude>
     <ClInclude Include="src\ForgeCraft\Core.h">
       <Filter>ForgeCraft</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Core\Layer.h">
+      <Filter>ForgeCraft\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Core\LayerStack.h">
+      <Filter>ForgeCraft\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ForgeCraft\EntryPoint.h">
       <Filter>ForgeCraft</Filter>
@@ -53,6 +62,12 @@
   <ItemGroup>
     <ClCompile Include="src\ForgeCraft\Application.cpp">
       <Filter>ForgeCraft</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Core\Layer.cpp">
+      <Filter>ForgeCraft\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Core\LayerStack.cpp">
+      <Filter>ForgeCraft\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Log.cpp">
       <Filter>ForgeCraft</Filter>

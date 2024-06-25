@@ -155,6 +155,8 @@
     <ClInclude Include="src\ForgeCraft.h" />
     <ClInclude Include="src\ForgeCraft\Application.h" />
     <ClInclude Include="src\ForgeCraft\Core.h" />
+    <ClInclude Include="src\ForgeCraft\Core\Layer.h" />
+    <ClInclude Include="src\ForgeCraft\Core\LayerStack.h" />
     <ClInclude Include="src\ForgeCraft\EntryPoint.h" />
     <ClInclude Include="src\ForgeCraft\Events\ApplicationEvent.h" />
     <ClInclude Include="src\ForgeCraft\Events\Event.h" />
@@ -167,6 +169,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ForgeCraft\Application.cpp" />
+    <ClCompile Include="src\ForgeCraft\Core\Layer.cpp" />
+    <ClCompile Include="src\ForgeCraft\Core\LayerStack.cpp" />
     <ClCompile Include="src\ForgeCraft\Log.cpp" />
     <ClCompile Include="src\ForgeCraft\fcpch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -105,6 +105,7 @@ project "Sandbox"
     {
         "ForgeCraftEngine/vendor/spdlog/include",
         "ForgeCraftEngine/src"
+
     }
 
     links
