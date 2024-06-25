@@ -39,10 +39,7 @@ namespace ForgeCraft {
 
     Window *m_window;
     LayerStack m_layerStack;
-
-
     bool m_running{ true };
-
     bool OnWindowClose(WindowCloseEvent& e);
 
   private:

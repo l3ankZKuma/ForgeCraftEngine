@@ -8,17 +8,7 @@ namespace ForgeCraft {
     : Layer("ImguiLayer")
   {
 
-  
-
-
-
-
-      
-
-
-
   }
-
   ImguiLayer::~ImguiLayer()
   {
 
@@ -56,12 +46,17 @@ namespace ForgeCraft {
     io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;
 
 
+    const auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
+
+
     ImGui_ImplOpenGL3_Init("#version 410");
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
   }
 
   void ImguiLayer::OnDetach()
   {
     ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
 
   }
@@ -94,7 +89,45 @@ namespace ForgeCraft {
 
   void ImguiLayer::OnEvent(Event& e)
   {
+    // Add debug statements
+    std::cout << "Event Received: " << e.ToString() << std::endl;
+
+    ImGuiIO& io = ImGui::GetIO();
+
+    EventDispatcher dispatcher(e);
+    dispatcher.Dispatch<KeyPressedEvent>([this, &io](KeyPressedEvent& event) {
+      io.KeysDown[event.GetKeyCode()] = true;
+      return false;
+      });
+
+    dispatcher.Dispatch<KeyReleasedEvent>([this, &io](KeyReleasedEvent& event) {
+      io.KeysDown[event.GetKeyCode()] = false;
+      return false;
+      });
+
+    dispatcher.Dispatch<MouseButtonPressedEvent>([this, &io](MouseButtonPressedEvent& event) {
+      io.MouseDown[event.GetMouseButton()] = true;
+      return false;
+      });
+
+    dispatcher.Dispatch<MouseButtonReleasedEvent>([this, &io](MouseButtonReleasedEvent& event) {
+      io.MouseDown[event.GetMouseButton()] = false;
+      return false;
+      });
+
+    dispatcher.Dispatch<MouseMovedEvent>([this, &io](MouseMovedEvent& event) {
+      io.MousePos = ImVec2(event.GetX(), event.GetY());
+      return false;
+      });
+
+    dispatcher.Dispatch<MouseScrolledEvent>([this, &io](MouseScrolledEvent& event) {
+      io.MouseWheelH += event.GetXOffset();
+      io.MouseWheel += event.GetYOffset();
+      return false;
+      });
 
 
   }
+
+
 }
