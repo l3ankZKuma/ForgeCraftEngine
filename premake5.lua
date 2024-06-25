@@ -16,11 +16,14 @@ IncludeDir = {}
 IncludeDir["glad"] = "ForgeCraftEngine/vendor/glad/include"
 IncludeDir["GLFW"] = "ForgeCraftEngine/vendor/GLFW/include"
 IncludeDir["spdlog"] = "ForgeCraftEngine/vendor/spdlog/include"
+IncludeDir["imgui"] = "ForgeCraftEngine/vendor/imgui"  -- Added imgui
+
 
 -- Include the projects
 group "Dependencies"
     include "ForgeCraftEngine/vendor/GLFW"
     include "ForgeCraftEngine/vendor/glad"
+    include "ForgeCraftEngine/vendor/imgui"  -- Included imgui project
 group ""
 
 project "ForgeCraftEngine"
@@ -45,13 +48,15 @@ project "ForgeCraftEngine"
         "%{prj.name}/src",
         "%{IncludeDir.glad}",
         "%{IncludeDir.GLFW}",
-        "%{IncludeDir.spdlog}"              
+        "%{IncludeDir.spdlog}",
+        "%{IncludeDir.imgui}"  -- Added imgui include directory
     }
 
     links
     {
         "glad",
         "GLFW",
+        "imgui",  
         "opengl32.lib"
     }
 
@@ -104,13 +109,13 @@ project "Sandbox"
     includedirs
     {
         "ForgeCraftEngine/vendor/spdlog/include",
-        "ForgeCraftEngine/src"
-
+        "ForgeCraftEngine/src",
+        "%{IncludeDir.imgui}"  -- Added imgui include directory
     }
 
     links
     {
-        "ForgeCraftEngine"
+        "ForgeCraftEngine",
     }
 
     filter "system:windows"

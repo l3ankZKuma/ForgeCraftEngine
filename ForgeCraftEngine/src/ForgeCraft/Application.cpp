@@ -1,14 +1,22 @@
 #include "fcpch.h"
 #include "Application.h"
 
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 namespace ForgeCraft {
 
+  Application* Application::s_instance = nullptr;
 
   Application::Application() {
+
+   
+    s_instance = this;  
+
+
     m_window = Window::Create();
     m_window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+
+
   }
 
   Application::~Application() {

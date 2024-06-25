@@ -10,6 +10,9 @@
     <Filter Include="ForgeCraft\Events">
       <UniqueIdentifier>{2CB5D9C4-98CB-D75A-E142-637C4D98A8E2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ForgeCraft\Imgui">
+      <UniqueIdentifier>{92FDECCF-7EF6-0B22-A728-F1A69380EB2D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -46,6 +49,9 @@
     <ClInclude Include="src\ForgeCraft\Events\MouseEvent.h">
       <Filter>ForgeCraft\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h">
+      <Filter>ForgeCraft\Imgui</Filter>
+    </ClInclude>
     <ClInclude Include="src\ForgeCraft\Log.h">
       <Filter>ForgeCraft</Filter>
     </ClInclude>
@@ -68,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Core\LayerStack.cpp">
       <Filter>ForgeCraft\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp">
+      <Filter>ForgeCraft\Imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Log.cpp">
       <Filter>ForgeCraft</Filter>

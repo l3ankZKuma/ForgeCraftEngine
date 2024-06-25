@@ -32,6 +32,7 @@ public:
 
 
     PushLayer(new ExampleLayer());
+    PushOverlay(new ForgeCraft::ImguiLayer());
 
   }
 

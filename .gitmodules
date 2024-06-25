@@ -7,3 +7,6 @@
 [submodule "ForgeCraftEngine/Vendor/GLFW/glfw"]
 	path = ForgeCraftEngine/Vendor/GLFW/glfw
 	url = https://github.com/glfw/glfw
+[submodule "ForgeCraftEngine/Vendor/Vendor/imgui"]
+	path = ForgeCraftEngine/Vendor/Vendor/imgui
+	url = https://github.com/ocornut/imgui
