@@ -155,14 +155,17 @@
     <ClInclude Include="src\ForgeCraft.h" />
     <ClInclude Include="src\ForgeCraft\Application.h" />
     <ClInclude Include="src\ForgeCraft\Core.h" />
+    <ClInclude Include="src\ForgeCraft\Core\KeyCodes.h" />
     <ClInclude Include="src\ForgeCraft\Core\Layer.h" />
     <ClInclude Include="src\ForgeCraft\Core\LayerStack.h" />
+    <ClInclude Include="src\ForgeCraft\Core\MouseCodes.h" />
     <ClInclude Include="src\ForgeCraft\EntryPoint.h" />
     <ClInclude Include="src\ForgeCraft\Events\ApplicationEvent.h" />
     <ClInclude Include="src\ForgeCraft\Events\Event.h" />
     <ClInclude Include="src\ForgeCraft\Events\KeyEvent.h" />
     <ClInclude Include="src\ForgeCraft\Events\MouseEvent.h" />
     <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h" />
+    <ClInclude Include="src\ForgeCraft\Core\Input.h" />
     <ClInclude Include="src\ForgeCraft\Log.h" />
     <ClInclude Include="src\ForgeCraft\Window.h" />
     <ClInclude Include="src\ForgeCraft\fcpch.h" />
@@ -179,6 +182,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>

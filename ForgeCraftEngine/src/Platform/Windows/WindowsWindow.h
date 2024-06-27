@@ -1,29 +1,28 @@
 #pragma once
 
 #include <ForgeCraft/Window.h>
-#include<ForgeCraft/Events/ApplicationEvent.h>
-#include<ForgeCraft/Events/KeyEvent.h>
-#include<ForgeCraft/Events/MouseEvent.h>
-
+#include <ForgeCraft/Events/ApplicationEvent.h>
+#include <ForgeCraft/Events/KeyEvent.h>
+#include <ForgeCraft/Events/MouseEvent.h>
 
 namespace ForgeCraft {
 
-  class WindowsWindow : public Window {
+  class WindowsWindow : public Window<WindowsWindow> {
   public:
     WindowsWindow(const WindowProps& props) noexcept;
-    virtual ~WindowsWindow() noexcept;
+    ~WindowsWindow() noexcept;
 
-    void OnUpdate() override;
+    void OnUpdateImpl();
+    void ClearImpl();
 
-    inline unsigned int GetWidth() const override;
-    inline unsigned int GetHeight() const override;
+    unsigned int GetWidthImpl() const;
+    unsigned int GetHeightImpl() const;
 
-    // Window attributes
-    inline void SetEventCallback(const EventCallbackFn& callback) override;
-    void SetVSync(bool enabled) override;
-    inline bool IsVSync() const override;
+    void SetEventCallbackImpl(const EventCallbackFn& callback);
+    void SetVSyncImpl(bool enabled);
+    bool IsVSyncImpl() const;
 
-    inline void* GetNativeWindow() const override;
+    void* GetNativeWindowImpl() const;
 
   private:
     void Init(const WindowProps& props) noexcept;
@@ -40,7 +39,6 @@ namespace ForgeCraft {
 
     WindowData m_data;
 
-    inline static bool s_GLFWInitialized{ false };
+    static bool s_GLFWInitialized;
   };
-
-} // namespace ForgeCraft
+}

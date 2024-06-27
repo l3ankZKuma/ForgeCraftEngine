@@ -36,3 +36,14 @@
 #include "imgui.h"
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
+
+//glm
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+
+//Macros
+#define TO_INT(x) (static_cast<int>((x)))
+#define TO_FLOAT(x) (static_cast<float>((x))
+

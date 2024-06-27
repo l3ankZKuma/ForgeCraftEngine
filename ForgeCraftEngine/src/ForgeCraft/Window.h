@@ -1,8 +1,7 @@
 #pragma once
 
-#include"ForgeCraft/Core.h"
-#include"ForgeCraft/Events/Event.h"
-
+#include "ForgeCraft/Core.h"
+#include "ForgeCraft/Events/Event.h"
 
 namespace ForgeCraft {
 
@@ -15,32 +14,49 @@ namespace ForgeCraft {
       unsigned int width = 1280,
       unsigned int height = 720)
       : mTitle(title), mWidth(width), mHeight(height) {}
-
-
   };
 
-  class FORGECRAFT_API Window {
+  template <typename Derived>
+  class Window {
   public:
-
     using EventCallbackFn = std::function<void(Event&)>;
 
-    virtual ~Window() {}
+    virtual ~Window() = default;
 
-    virtual void OnUpdate() = 0;
+    void OnUpdate() {
+      static_cast<Derived*>(this)->OnUpdateImpl();
+    }
 
-    virtual unsigned int GetWidth() const = 0;
-    virtual unsigned int GetHeight() const = 0;
+    void Clear() {
+      static_cast<Derived*>(this)->ClearImpl();
+    }
 
-    // Window attributes
-    virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
-    virtual void SetVSync(bool enabled) = 0;
-    virtual bool IsVSync() const = 0;
+    unsigned int GetWidth() const {
+      return static_cast<const Derived*>(this)->GetWidthImpl();
+    }
 
-    virtual void* GetNativeWindow() const = 0;
+    unsigned int GetHeight() const {
+      return static_cast<const Derived*>(this)->GetHeightImpl();
+    }
 
-    static Window* Create(const WindowProps& props = WindowProps());
+    void SetEventCallback(const EventCallbackFn& callback) {
+      static_cast<Derived*>(this)->SetEventCallbackImpl(callback);
+    }
 
+    void SetVSync(bool enabled) {
+      static_cast<Derived*>(this)->SetVSyncImpl(enabled);
+    }
 
+    bool IsVSync() const {
+      return static_cast<const Derived*>(this)->IsVSyncImpl();
+    }
+
+    void* GetNativeWindow() const {
+      return static_cast<const Derived*>(this)->GetNativeWindowImpl();
+    }
+
+    static Derived* Create(const WindowProps& props = WindowProps()) {
+      return new Derived(props);
+    }
   };
-
 }

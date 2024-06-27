@@ -17,6 +17,7 @@ IncludeDir["glad"] = "ForgeCraftEngine/vendor/glad/include"
 IncludeDir["GLFW"] = "ForgeCraftEngine/vendor/GLFW/include"
 IncludeDir["spdlog"] = "ForgeCraftEngine/vendor/spdlog/include"
 IncludeDir["imgui"] = "ForgeCraftEngine/vendor/imgui"  -- Added imgui
+IncludeDir["glm"] = "ForgeCraftEngine/vendor/glm"
 
 
 -- Include the projects

@@ -4,4 +4,5 @@ D:\Project\GameEngine\ForgeCraftEngine\src\ForgeCraft\Core\LayerStack.cpp;D:\Pro
 D:\Project\GameEngine\ForgeCraftEngine\src\ForgeCraft\Imgui\ImguiLayer.cpp;D:\Project\GameEngine\bin-int\Debug-windows-x86_64\ForgeCraftEngine\ImguiLayer.obj
 D:\Project\GameEngine\ForgeCraftEngine\src\ForgeCraft\Log.cpp;D:\Project\GameEngine\bin-int\Debug-windows-x86_64\ForgeCraftEngine\Log.obj
 D:\Project\GameEngine\ForgeCraftEngine\src\ForgeCraft\fcpch.cpp;D:\Project\GameEngine\bin-int\Debug-windows-x86_64\ForgeCraftEngine\fcpch.obj
+D:\Project\GameEngine\ForgeCraftEngine\src\Platform\Windows\WindowsInput.cpp;D:\Project\GameEngine\bin-int\Debug-windows-x86_64\ForgeCraftEngine\WindowsInput.obj
 D:\Project\GameEngine\ForgeCraftEngine\src\Platform\Windows\WindowsWindow.cpp;D:\Project\GameEngine\bin-int\Debug-windows-x86_64\ForgeCraftEngine\WindowsWindow.obj

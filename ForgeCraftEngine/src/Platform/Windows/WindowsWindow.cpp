@@ -5,6 +5,8 @@
 
 namespace ForgeCraft {
 
+  bool WindowsWindow::s_GLFWInitialized = false;
+
   static void GLFWErrorCallback(int error, const char* description) {
     std::cerr << "GLFW Error (" << error << "): " << description << '\n';
   }
@@ -91,9 +93,7 @@ namespace ForgeCraft {
         data.EventCallback(event);
         break;
       }
-      
       }
-
       });
 
     glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods) {
@@ -134,38 +134,40 @@ namespace ForgeCraft {
       }
   }
 
-  void WindowsWindow::OnUpdate() {
+  void WindowsWindow::OnUpdateImpl() {
     glfwPollEvents();
     glfwSwapBuffers(m_window);
   }
 
-  void WindowsWindow::SetVSync(bool enabled) {
+  void WindowsWindow::ClearImpl() {
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  }
+
+  void WindowsWindow::SetVSyncImpl(bool enabled) {
     glfwSwapInterval(enabled ? 1 : 0);
     m_data.VSync = enabled;
   }
 
-  inline unsigned int WindowsWindow::GetWidth() const {
+  unsigned int WindowsWindow::GetWidthImpl() const {
     return m_data.Width;
   }
 
-  inline unsigned int WindowsWindow::GetHeight() const {
+  unsigned int WindowsWindow::GetHeightImpl() const {
     return m_data.Height;
   }
 
-  inline void WindowsWindow::SetEventCallback(const EventCallbackFn& callback) {
+  void WindowsWindow::SetEventCallbackImpl(const EventCallbackFn& callback) {
     m_data.EventCallback = callback;
   }
 
-  inline bool WindowsWindow::IsVSync() const {
+  bool WindowsWindow::IsVSyncImpl() const {
     return m_data.VSync;
   }
 
-  inline void* WindowsWindow::GetNativeWindow() const {
+  void* WindowsWindow::GetNativeWindowImpl() const {
     return m_window;
   }
 
-  inline Window* Window::Create(const WindowProps& props) {
-    return new WindowsWindow(props);
-  }
 
-} // namespace ForgeCraft
+}
