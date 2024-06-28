@@ -7,7 +7,7 @@ namespace ForgeCraft {
 
   using LayerVector = std::vector<Layer*>;
 
-  class LayerStack {
+  class FORGECRAFT_API LayerStack {
   public:
     LayerStack();
     ~LayerStack();

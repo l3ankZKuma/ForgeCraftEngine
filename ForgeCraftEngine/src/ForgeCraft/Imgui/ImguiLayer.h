@@ -1,33 +1,39 @@
 #pragma once
 
-
-#include "ForgeCraft/Core/Layer.h"
-
-#include "ForgeCraft/Events/ApplicationEvent.h"
-#include "ForgeCraft/Events/KeyEvent.h"
-#include "ForgeCraft/Events/MouseEvent.h"
-
+#include "ForgeCraft/Core.h"
 #include"ForgeCraft/Application.h"
+
+
+//imgui
+#include "imgui.h"
+#include "backends/imgui_impl_glfw.h"
+#include "backends/imgui_impl_opengl3.h"
+
 
 
 namespace ForgeCraft {
 
-
-
-  class FORGECRAFT_API ImguiLayer : public Layer
-  {
+  class FORGECRAFT_API ImguiLayer {
   public:
+
     ImguiLayer();
     ~ImguiLayer();
 
     void OnAttach();
     void OnDetach();
-    void OnUpdate();
-    void OnEvent(Event& e);
+
+    void OnEvent(Event& event);
+
+    void Update();
+      void Render();
+
+    void End();
+    void Begin();
+
+
 
   private:
-    
-    float m_time;
-
+    float m_time = 0.0f;
   };
+
 }

@@ -13,3 +13,6 @@
 [submodule "ForgeCraftEngine/Vendor/glm"]
 	path = ForgeCraftEngine/Vendor/glm
 	url = https://github.com/icaven/glm
+[submodule "ForgeCraftEngine/Vendor/imgui"]
+	path = ForgeCraftEngine/Vendor/imgui
+	url = https://github.com/ocornut/imgui

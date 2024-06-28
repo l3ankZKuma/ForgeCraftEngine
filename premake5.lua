@@ -1,3 +1,6 @@
+-- Disable vcpkg by setting VCPKG_ROOT to an empty string
+os.setenv("VCPKG_ROOT", "")
+
 workspace "ForgeCraftEngine"
     architecture "x64"
     startproject "Sandbox"
@@ -16,15 +19,14 @@ IncludeDir = {}
 IncludeDir["glad"] = "ForgeCraftEngine/vendor/glad/include"
 IncludeDir["GLFW"] = "ForgeCraftEngine/vendor/GLFW/include"
 IncludeDir["spdlog"] = "ForgeCraftEngine/vendor/spdlog/include"
-IncludeDir["imgui"] = "ForgeCraftEngine/vendor/imgui"  -- Added imgui
+IncludeDir["imgui"] = "ForgeCraftEngine/vendor/imgui"
 IncludeDir["glm"] = "ForgeCraftEngine/vendor/glm"
-
 
 -- Include the projects
 group "Dependencies"
     include "ForgeCraftEngine/vendor/GLFW"
     include "ForgeCraftEngine/vendor/glad"
-    include "ForgeCraftEngine/vendor/imgui"  -- Included imgui project
+    include "ForgeCraftEngine/vendor/imgui"
 group ""
 
 project "ForgeCraftEngine"
@@ -50,14 +52,15 @@ project "ForgeCraftEngine"
         "%{IncludeDir.glad}",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.spdlog}",
-        "%{IncludeDir.imgui}"  -- Added imgui include directory
+        "%{IncludeDir.imgui}",
+        "%{IncludeDir.glm}"
     }
 
     links
     {
         "glad",
         "GLFW",
-        "imgui",  
+        "imgui",
         "opengl32.lib"
     }
 
@@ -111,7 +114,7 @@ project "Sandbox"
     {
         "ForgeCraftEngine/vendor/spdlog/include",
         "ForgeCraftEngine/src",
-        "%{IncludeDir.imgui}"  -- Added imgui include directory
+        "%{IncludeDir.imgui}"
     }
 
     links

@@ -28,10 +28,19 @@
     <ClInclude Include="src\ForgeCraft\Core.h">
       <Filter>ForgeCraft</Filter>
     </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Core\Input.h">
+      <Filter>ForgeCraft\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Core\KeyCodes.h">
+      <Filter>ForgeCraft\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\ForgeCraft\Core\Layer.h">
       <Filter>ForgeCraft\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ForgeCraft\Core\LayerStack.h">
+      <Filter>ForgeCraft\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Core\MouseCodes.h">
       <Filter>ForgeCraft\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ForgeCraft\EntryPoint.h">
@@ -49,9 +58,6 @@
     <ClInclude Include="src\ForgeCraft\Events\MouseEvent.h">
       <Filter>ForgeCraft\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h">
-      <Filter>ForgeCraft\Imgui</Filter>
-    </ClInclude>
     <ClInclude Include="src\ForgeCraft\Log.h">
       <Filter>ForgeCraft</Filter>
     </ClInclude>
@@ -64,9 +70,7 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\ForgeCraft\Core\Input.h" />
-    <ClInclude Include="src\ForgeCraft\Core\MouseCodes.h" />
-    <ClInclude Include="src\ForgeCraft\Core\KeyCodes.h" />
+    <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ForgeCraft\Application.cpp">
@@ -78,7 +82,7 @@
     <ClCompile Include="src\ForgeCraft\Core\LayerStack.cpp">
       <Filter>ForgeCraft\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp">
+    <ClCompile Include="src\ForgeCraft\Imgui\ImguiBuild.cpp">
       <Filter>ForgeCraft\Imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Log.cpp">
@@ -87,9 +91,12 @@
     <ClCompile Include="src\ForgeCraft\fcpch.cpp">
       <Filter>ForgeCraft</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp" />
   </ItemGroup>
 </Project>

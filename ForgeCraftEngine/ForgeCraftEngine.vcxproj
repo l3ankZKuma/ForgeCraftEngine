@@ -74,13 +74,16 @@
     <TargetName>ForgeCraftEngine</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>false</VcpkgEnabled>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>fcpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>FC_PLATFORM_WINDOWS;FC_BUILD_DLL;GLFW_INCLUDE_NONE;FC_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\glad\include;vendor\GLFW\include;vendor\spdlog\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\glad\include;vendor\GLFW\include;vendor\spdlog\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -103,7 +106,7 @@
       <PrecompiledHeaderFile>fcpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>FC_PLATFORM_WINDOWS;FC_BUILD_DLL;GLFW_INCLUDE_NONE;FC_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\glad\include;vendor\GLFW\include;vendor\spdlog\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\glad\include;vendor\GLFW\include;vendor\spdlog\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +133,7 @@
       <PrecompiledHeaderFile>fcpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>FC_PLATFORM_WINDOWS;FC_BUILD_DLL;GLFW_INCLUDE_NONE;FC_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\glad\include;vendor\GLFW\include;vendor\spdlog\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\glad\include;vendor\GLFW\include;vendor\spdlog\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -152,9 +155,11 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h" />
     <ClInclude Include="src\ForgeCraft.h" />
     <ClInclude Include="src\ForgeCraft\Application.h" />
     <ClInclude Include="src\ForgeCraft\Core.h" />
+    <ClInclude Include="src\ForgeCraft\Core\Input.h" />
     <ClInclude Include="src\ForgeCraft\Core\KeyCodes.h" />
     <ClInclude Include="src\ForgeCraft\Core\Layer.h" />
     <ClInclude Include="src\ForgeCraft\Core\LayerStack.h" />
@@ -164,18 +169,17 @@
     <ClInclude Include="src\ForgeCraft\Events\Event.h" />
     <ClInclude Include="src\ForgeCraft\Events\KeyEvent.h" />
     <ClInclude Include="src\ForgeCraft\Events\MouseEvent.h" />
-    <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h" />
-    <ClInclude Include="src\ForgeCraft\Core\Input.h" />
     <ClInclude Include="src\ForgeCraft\Log.h" />
     <ClInclude Include="src\ForgeCraft\Window.h" />
     <ClInclude Include="src\ForgeCraft\fcpch.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp" />
     <ClCompile Include="src\ForgeCraft\Application.cpp" />
     <ClCompile Include="src\ForgeCraft\Core\Layer.cpp" />
     <ClCompile Include="src\ForgeCraft\Core\LayerStack.cpp" />
-    <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp" />
+    <ClCompile Include="src\ForgeCraft\Imgui\ImguiBuild.cpp" />
     <ClCompile Include="src\ForgeCraft\Log.cpp" />
     <ClCompile Include="src\ForgeCraft\fcpch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -7,12 +7,23 @@ namespace ForgeCraft {
 
   Application::Application() {
     s_instance = this;
-    m_window = WindowsWindow::Create();  // Changed to initialize the raw pointer directly
+    m_window = WindowsWindow::Create();
     m_window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+    m_imguiLayer = new ImguiLayer();
+    m_imguiLayer->OnAttach();
   }
 
   Application::~Application() {
-    delete m_window;  // Make sure the pointer is properly deleted
+    delete m_imguiLayer;
+    delete m_window;
+
+  for (Layer* layer : m_layerStack) {
+      layer->OnDetach();
+      delete layer;
+    }
+
+  m_imguiLayer->OnDetach(); 
   }
 
   void Application::OnEvent(Event& e) {
@@ -21,7 +32,6 @@ namespace ForgeCraft {
 
     FC_CORE_INFO("{0}", e.ToString());
 
-    // Handle events in reverse order for layers
     for (auto it = m_layerStack.end(); it != m_layerStack.begin(); ) {
       (*--it)->OnEvent(e);
       if (e.Handled)
@@ -31,21 +41,20 @@ namespace ForgeCraft {
 
   void Application::Run() {
     while (m_running) {
+
       m_window->Clear();
 
+      //
       for (Layer* layer : m_layerStack) {
         layer->OnUpdate();
       }
 
-#if 0
+      m_imguiLayer->Begin();  
 
-      const auto mousePos = Input::GetMousePosition();
-      const auto x = mousePos.x;
-      const auto y = mousePos.y;
+      m_imguiLayer->Render();
+      
+      m_imguiLayer->End();
 
-      FC_CORE_TRACE("Mouse: {0}, {1}", x, y);
-
-#endif
 
       m_window->OnUpdate();
     }
