@@ -13,7 +13,7 @@
 
 namespace ForgeCraft {
 
-  class FORGECRAFT_API ImguiLayer {
+  class FORGECRAFT_API ImguiLayer{
   public:
 
     ImguiLayer();
@@ -25,7 +25,7 @@ namespace ForgeCraft {
     void OnEvent(Event& event);
 
     void Update();
-      void Render();
+    void Render();
 
     void End();
     void Begin();

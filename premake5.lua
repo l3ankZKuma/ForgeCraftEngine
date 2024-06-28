@@ -1,5 +1,3 @@
--- Disable vcpkg by setting VCPKG_ROOT to an empty string
-os.setenv("VCPKG_ROOT", "")
 
 workspace "ForgeCraftEngine"
     architecture "x64"
@@ -100,6 +98,7 @@ project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "C++"
+
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")

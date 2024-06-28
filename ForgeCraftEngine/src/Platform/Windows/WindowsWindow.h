@@ -5,6 +5,11 @@
 #include <ForgeCraft/Events/KeyEvent.h>
 #include <ForgeCraft/Events/MouseEvent.h>
 
+
+
+//Renderer
+#include<Platform/OpenGL/OpenGLContext.h>
+
 namespace ForgeCraft {
 
   class WindowsWindow : public Window<WindowsWindow> {
@@ -27,6 +32,11 @@ namespace ForgeCraft {
   private:
     void Init(const WindowProps& props) noexcept;
     void Shutdown() noexcept;
+
+
+#if 1
+    OpenGLContext* m_context;
+#endif
 
     GLFWwindow* m_window;
 

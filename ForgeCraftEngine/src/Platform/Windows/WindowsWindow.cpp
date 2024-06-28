@@ -12,7 +12,12 @@ namespace ForgeCraft {
   }
 
   WindowsWindow::WindowsWindow(const WindowProps& props) noexcept {
+
+
+
     Init(props);
+
+
   }
 
   WindowsWindow::~WindowsWindow() noexcept {
@@ -23,6 +28,12 @@ namespace ForgeCraft {
     m_data.Title = props.mTitle;
     m_data.Width = props.mWidth;
     m_data.Height = props.mHeight;
+
+
+
+
+
+
 
     if (!s_GLFWInitialized) {
       if (glfwInit() == GLFW_TRUE) [[likely]] {
@@ -41,7 +52,10 @@ namespace ForgeCraft {
 
     m_window = glfwCreateWindow(CAST_INT(props.mWidth), CAST_INT(props.mHeight), m_data.Title.c_str(), nullptr, nullptr);
     if (m_window) [[likely]] {
-      glfwMakeContextCurrent(m_window);
+
+      m_context = new OpenGLContext(m_window);
+      m_context->Init();
+
       glfwSwapInterval(1); // Enable vsync
       glfwSetWindowUserPointer(m_window, &m_data);
       SetVSync(true);
@@ -129,14 +143,16 @@ namespace ForgeCraft {
   }
 
   void WindowsWindow::Shutdown() noexcept {
+
     if (m_window) [[likely]] {
       glfwDestroyWindow(m_window);
-      }
+    }
   }
 
   void WindowsWindow::OnUpdateImpl() {
     glfwPollEvents();
-    glfwSwapBuffers(m_window);
+    m_context->SwapBuffers();
+    //glfwSwapBuffers(m_window);
   }
 
   void WindowsWindow::ClearImpl() {

@@ -155,7 +155,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\ForgeCraft.h" />
     <ClInclude Include="src\ForgeCraft\Application.h" />
     <ClInclude Include="src\ForgeCraft\Core.h" />
@@ -169,17 +170,20 @@
     <ClInclude Include="src\ForgeCraft\Events\Event.h" />
     <ClInclude Include="src\ForgeCraft\Events\KeyEvent.h" />
     <ClInclude Include="src\ForgeCraft\Events\MouseEvent.h" />
+    <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h" />
     <ClInclude Include="src\ForgeCraft\Log.h" />
     <ClInclude Include="src\ForgeCraft\Window.h" />
     <ClInclude Include="src\ForgeCraft\fcpch.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\ForgeCraft\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\ForgeCraft\Application.cpp" />
     <ClCompile Include="src\ForgeCraft\Core\Layer.cpp" />
     <ClCompile Include="src\ForgeCraft\Core\LayerStack.cpp" />
     <ClCompile Include="src\ForgeCraft\Imgui\ImguiBuild.cpp" />
+    <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp" />
     <ClCompile Include="src\ForgeCraft\Log.cpp" />
     <ClCompile Include="src\ForgeCraft\fcpch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

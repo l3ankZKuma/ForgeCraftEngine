@@ -58,6 +58,9 @@
     <ClInclude Include="src\ForgeCraft\Events\MouseEvent.h">
       <Filter>ForgeCraft\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h">
+      <Filter>ForgeCraft\Imgui</Filter>
+    </ClInclude>
     <ClInclude Include="src\ForgeCraft\Log.h">
       <Filter>ForgeCraft</Filter>
     </ClInclude>
@@ -70,7 +73,8 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ForgeCraft\Application.cpp">
@@ -85,6 +89,9 @@
     <ClCompile Include="src\ForgeCraft\Imgui\ImguiBuild.cpp">
       <Filter>ForgeCraft\Imgui</Filter>
     </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp">
+      <Filter>ForgeCraft\Imgui</Filter>
+    </ClCompile>
     <ClCompile Include="src\ForgeCraft\Log.cpp">
       <Filter>ForgeCraft</Filter>
     </ClCompile>
@@ -97,6 +104,7 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp" />
+    <ClCompile Include="src\ForgeCraft\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
   </ItemGroup>
 </Project>
