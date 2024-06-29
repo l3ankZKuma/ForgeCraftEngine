@@ -155,8 +155,11 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\ForgeCraft\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\Shader.h" />
     <ClInclude Include="src\ForgeCraft.h" />
     <ClInclude Include="src\ForgeCraft\Application.h" />
     <ClInclude Include="src\ForgeCraft\Core.h" />
@@ -172,26 +175,35 @@
     <ClInclude Include="src\ForgeCraft\Events\MouseEvent.h" />
     <ClInclude Include="src\ForgeCraft\Imgui\ImguiLayer.h" />
     <ClInclude Include="src\ForgeCraft\Log.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\ForgeCraft\Window.h" />
     <ClInclude Include="src\ForgeCraft\fcpch.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="Vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\ForgeCraft\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\ForgeCraft\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\ForgeCraft\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\ForgeCraft\Renderer\Shader.cpp" />
     <ClCompile Include="src\ForgeCraft\Application.cpp" />
     <ClCompile Include="src\ForgeCraft\Core\Layer.cpp" />
     <ClCompile Include="src\ForgeCraft\Core\LayerStack.cpp" />
     <ClCompile Include="src\ForgeCraft\Imgui\ImguiBuild.cpp" />
     <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp" />
     <ClCompile Include="src\ForgeCraft\Log.cpp" />
+    <ClCompile Include="src\ForgeCraft\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\ForgeCraft\fcpch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="Vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\glad\glad.vcxproj">
