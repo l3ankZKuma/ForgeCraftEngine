@@ -8,8 +8,13 @@
 #include <ForgeCraft/Imgui/ImguiLayer.h>
 #include <Platform/Windows/WindowsWindow.h>
 #include <Platform/OpenGL/OpenGLShader.h>
+
+
 #include <ForgeCraft/Renderer/Buffer.h>
 #include <Platform/OpenGL/OpenGLBuffer.h>
+
+#include<ForgeCraft/Renderer/VertexArray.h>
+#include<Platform/OpenGL/OpenGLVertexArray.h>
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
@@ -45,11 +50,11 @@ namespace ForgeCraft {
     static Application* s_instance;
 
     // Triangle
-    GLuint m_vao;
     OpenGLShader* m_shader;
 
     VertexBuffer<OpenGLVertexBuffer>* m_vbo;
     IndexBuffer<OpenGLIndexBuffer>* m_ebo;
+    VertexArray<OpenGLVertexArray>* m_vao;
 
 
     GLfloat m_vertices[3 * 6] = {

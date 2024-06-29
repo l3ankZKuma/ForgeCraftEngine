@@ -11,7 +11,6 @@ namespace ForgeCraft {
       FC_CORE_WARN( "RendererAPI::None is not supported");
       return nullptr;
     case RendererAPI<OpenGLVertexBuffer>::API::OpenGL:
-      puts("Creating OpenGLVertexBuffer");
       return new OpenGLVertexBuffer(data, size);
     }
     FC_CORE_WARN("Unknown RendererAPI!");
@@ -25,7 +24,6 @@ namespace ForgeCraft {
       FC_CORE_WARN( "RendererAPI::None is not supported");
       return nullptr;
     case RendererAPI<OpenGLIndexBuffer>::API::OpenGL:
-      puts("Creating OpenGLIndexBuffer");
       return new OpenGLIndexBuffer(data, size);
     }
     FC_CORE_WARN("Unknown RendererAPI!");

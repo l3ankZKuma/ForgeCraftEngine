@@ -1,11 +1,13 @@
 #pragma once
 
+
+#include "ForgeCraft/Core.h"
 #include "ForgeCraft/Renderer/GraphicsContext.h"
 
 
 namespace ForgeCraft {
 
-  class OpenGLContext : public GraphicsContext<OpenGLContext>
+  class FORGECRAFT_API OpenGLContext : public GraphicsContext<OpenGLContext>
   {
   public:
     OpenGLContext(GLFWwindow* windowHandle);

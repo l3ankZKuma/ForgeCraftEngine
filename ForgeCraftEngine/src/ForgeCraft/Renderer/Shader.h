@@ -4,7 +4,7 @@ namespace ForgeCraft {
 
 
   template<typename Derived>
-  class Shader {
+  class  Shader {
 
   public:
 

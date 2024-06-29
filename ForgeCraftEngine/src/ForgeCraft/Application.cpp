@@ -37,9 +37,8 @@ namespace ForgeCraft {
       }
     )");
 
-    // Initialize Vertex Array Object
-    glGenVertexArrays(1, &m_vao);
-    glBindVertexArray(m_vao);
+    m_vao = VertexArray<OpenGLVertexArray>::Create();
+
 
     // Create Vertex Buffer
     m_vbo = VertexBuffer<OpenGLVertexBuffer>::Create(m_vertices, 18);
@@ -50,13 +49,24 @@ namespace ForgeCraft {
     m_ebo = IndexBuffer<OpenGLIndexBuffer>::Create(m_indices, 3);
     m_ebo->Bind();
 
-    // Set Vertex Attributes
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)0);
-    glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
-    glEnableVertexAttribArray(1);
-    glBindVertexArray(0);  // Unbind VAO
+    BufferLayout layout = {
+      {ShaderDataType::Float3, "aPos"},
+      {ShaderDataType::Float3, "aColor"}
+    };
+
+    m_vbo->SetLayout(layout);
+
+
+
+    m_vao->AddVertexBuffer(m_vbo);
+    m_vao->SetIndexBuffer(m_ebo);
+
+
+
+
+
+
   }
 
   Application::~Application() {
@@ -74,7 +84,7 @@ namespace ForgeCraft {
     delete m_shader;
     delete m_vbo;
     delete m_ebo;
-
+    delete m_vao;
   }
 
   void Application::OnEvent(Event& e) {
@@ -94,7 +104,7 @@ namespace ForgeCraft {
 
       // Render the triangle
       m_shader->Bind();
-      glBindVertexArray(m_vao);
+      m_vao->Bind();
       glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
       m_shader->UnBind();
 

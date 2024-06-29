@@ -70,7 +70,16 @@
     <ClInclude Include="src\ForgeCraft\Log.h">
       <Filter>ForgeCraft</Filter>
     </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\Buffer.h">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\ForgeCraft\Renderer\GraphicsContext.h">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\RendererAPI.h">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\Shader.h">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ForgeCraft\Window.h">
@@ -79,18 +88,24 @@
     <ClInclude Include="src\ForgeCraft\fcpch.h">
       <Filter>ForgeCraft</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="Vendor\stb_image\stb_image.h" />
-    <ClInclude Include="src\ForgeCraft\Renderer\Shader.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
-    <ClInclude Include="src\ForgeCraft\Renderer\Buffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\ForgeCraft\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\VertexArray.h">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ForgeCraft\Application.cpp">
@@ -111,13 +126,28 @@
     <ClCompile Include="src\ForgeCraft\Log.cpp">
       <Filter>ForgeCraft</Filter>
     </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Renderer\Buffer.cpp">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\ForgeCraft\Renderer\GraphicsContext.cpp">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Renderer\RendererAPI.cpp">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Renderer\Shader.cpp">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\fcpch.cpp">
       <Filter>ForgeCraft</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -126,11 +156,11 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="Vendor\stb_image\stb_image.cpp" />
-    <ClCompile Include="src\ForgeCraft\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
-    <ClCompile Include="src\ForgeCraft\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\ForgeCraft\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Renderer\VertexArray.cpp">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

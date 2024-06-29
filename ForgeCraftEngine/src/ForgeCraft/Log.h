@@ -8,8 +8,6 @@
 
 
 
-
-
 namespace ForgeCraft {
 
   class FORGECRAFT_API Log {

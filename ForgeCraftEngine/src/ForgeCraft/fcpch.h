@@ -14,6 +14,8 @@
 #include<array>
 #include<numeric>
 #include<iterator>
+#include<initializer_list>
+
 
 
 
@@ -49,4 +51,6 @@
 //Macros
 #define TO_INT(x) (static_cast<int>((x)))
 #define TO_FLOAT(x) (static_cast<float>((x))
+
+
 

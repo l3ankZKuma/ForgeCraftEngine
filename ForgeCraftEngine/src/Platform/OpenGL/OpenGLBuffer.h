@@ -4,7 +4,7 @@
 
 namespace ForgeCraft {
 
-  class OpenGLVertexBuffer : public VertexBuffer<OpenGLVertexBuffer> {
+  class FORGECRAFT_API OpenGLVertexBuffer : public VertexBuffer<OpenGLVertexBuffer> {
   public:
     OpenGLVertexBuffer(GLfloat* data, GLuint size);
     ~OpenGLVertexBuffer();
@@ -12,8 +12,16 @@ namespace ForgeCraft {
     void Bind() ;
     void Unbind();
 
+    void SetLayout(const BufferLayout& layout) {
+            m_layout = layout;
+    }
+    const BufferLayout& GetLayout() const {
+            return m_layout;
+    }
+
   private:
     GLuint m_vbo;
+    BufferLayout m_layout;
   };
 
   class OpenGLIndexBuffer : public IndexBuffer<OpenGLIndexBuffer> {

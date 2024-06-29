@@ -3,7 +3,7 @@
 namespace ForgeCraft {
 
   template<typename Derived>
-  class GraphicsContext
+  class  GraphicsContext
   {
   public:
     GraphicsContext() = default;

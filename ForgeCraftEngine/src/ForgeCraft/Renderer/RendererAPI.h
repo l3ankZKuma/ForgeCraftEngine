@@ -3,7 +3,7 @@
 namespace ForgeCraft {
 
   template<typename Derived>
-  class RendererAPI {
+  class  RendererAPI {
   public:
     enum class API {
       None = 0,
