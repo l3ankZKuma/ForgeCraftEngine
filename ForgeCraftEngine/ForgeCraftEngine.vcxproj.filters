@@ -106,6 +106,9 @@
     <ClInclude Include="src\ForgeCraft\Renderer\VertexArray.h">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\Renderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRedererAPI.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\RenderCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ForgeCraft\Application.cpp">
@@ -162,5 +165,8 @@
     <ClCompile Include="src\ForgeCraft\Renderer\VertexArray.cpp">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRedererAPI.cpp" />
+    <ClCompile Include="src\ForgeCraft\Renderer\RenderCommand.cpp" />
   </ItemGroup>
 </Project>

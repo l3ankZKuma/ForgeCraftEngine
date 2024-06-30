@@ -21,7 +21,8 @@ namespace ForgeCraft {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
   }
 
-  OpenGLIndexBuffer::OpenGLIndexBuffer(GLuint* data, GLuint size) {
+  OpenGLIndexBuffer::OpenGLIndexBuffer(GLuint* data, GLuint size) :m_count(size) 
+  {
     glGenBuffers(1, &m_ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, size*sizeof(GLfloat), data, GL_STATIC_DRAW);
@@ -39,4 +40,7 @@ namespace ForgeCraft {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   }
 
+  uint32_t OpenGLIndexBuffer::GetCount() const {
+    return m_count;
+  }
 }

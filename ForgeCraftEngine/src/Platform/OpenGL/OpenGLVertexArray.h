@@ -1,10 +1,14 @@
 #pragma once
 
-#include<ForgeCraft/Core.h>
-#include"ForgeCraft/Renderer/VertexArray.h"
-#include<Platform/OpenGL/OpenGLBuffer.h>
+#include <ForgeCraft/Core.h>
+#include <ForgeCraft/Renderer/VertexArray.h>
+#include <Platform/OpenGL/OpenGLBuffer.h>
 
 namespace ForgeCraft {
+
+  using VBO = VertexBuffer<OpenGLVertexBuffer>;
+  using EBO = IndexBuffer<OpenGLIndexBuffer>;
+
 
   class FORGECRAFT_API OpenGLVertexArray : public VertexArray<OpenGLVertexArray> {
   public:
@@ -14,15 +18,21 @@ namespace ForgeCraft {
     void Bind();
     void Unbind();
 
-    void AddVertexBuffer(VertexBuffer<OpenGLVertexBuffer>* vertexBuffer);
+    void AddVertexBuffer(VBO* vertexBuffer);
+    void SetIndexBuffer(EBO* indexBuffer);
 
-    void SetIndexBuffer(IndexBuffer<OpenGLIndexBuffer>* indexBuffer);
+    const std::vector<VBO*> & GetVertexBuffer() const  {
+      return m_vertexBuffers;
+    }
+
+    const EBO *  GetIndexBuffer() const {
+      return m_indexBuffers;
+    }
 
   private:
     GLuint m_vao;
-    std::vector<VertexBuffer<OpenGLVertexBuffer>*> m_vertexBuffers;
-    std::vector<IndexBuffer<OpenGLIndexBuffer>*> m_indexBuffers;
-
+    std::vector<VBO*> m_vertexBuffers;
+    EBO *  m_indexBuffers;
   };
 
   static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {
@@ -38,10 +48,8 @@ namespace ForgeCraft {
     case ShaderDataType::Int3: return GL_INT;
     case ShaderDataType::Int4: return GL_INT;
     case ShaderDataType::Bool: return GL_BOOL;
+    default: FC_CORE_ERROR("Unknown ShaderDataType!"); return 0;
     }
-
-    FC_CORE_ERROR("Unknown ShaderDataType!");
-    return 0;
   }
 
 }  // namespace ForgeCraft

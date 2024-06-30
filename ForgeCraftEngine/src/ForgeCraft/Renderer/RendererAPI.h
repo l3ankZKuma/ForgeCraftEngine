@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace ForgeCraft {
 
   template<typename Derived>
@@ -20,16 +21,20 @@ namespace ForgeCraft {
       static_cast<Derived*>(this)->SetViewport(x, y, width, height);
     }
 
-    void SetClearColor(float r, float g, float b, float a) {
-      static_cast<Derived*>(this)->SetClearColor(r, g, b, a);
+    void SetClearColor(const glm::vec4 &color) {
+      static_cast<Derived*>(this)->SetClearColor(color);
     }
 
     void Clear() {
       static_cast<Derived*>(this)->Clear();
     }
 
-    void DrawIndexed() {
-      static_cast<Derived*>(this)->DrawIndexed();
+    void DrawIndexed( auto * vertexArray) {
+      static_cast<Derived*>(this)->DrawIndexed(vertexArray);
+    }
+
+    void DrawLine() {
+      static_cast<Derived*>(this)->DrawLine();
     }
 
     inline static API GetAPI() { return s_API; }

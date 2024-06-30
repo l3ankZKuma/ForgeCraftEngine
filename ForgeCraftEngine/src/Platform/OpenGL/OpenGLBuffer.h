@@ -1,5 +1,4 @@
 #pragma once
-
 #include <ForgeCraft/Renderer/Buffer.h>
 
 namespace ForgeCraft {
@@ -31,8 +30,10 @@ namespace ForgeCraft {
 
     void Bind() ;
     void Unbind() ;
+    uint32_t GetCount() const;
 
   private:
+    GLuint m_count;
     GLuint m_ebo;
   };
 

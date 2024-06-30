@@ -3,6 +3,7 @@
 
 #include <Platform/OpenGL/OpenGLVertexArray.h>
 
+
 namespace ForgeCraft {
 
     template<>
@@ -17,5 +18,9 @@ namespace ForgeCraft {
         FC_CORE_WARN("Unknown RendererAPI!");
         return nullptr;
     }
+
+
+    template class VertexBuffer<OpenGLVertexBuffer>;
+    template class IndexBuffer<OpenGLIndexBuffer>;
 
 }  // namespace ForgeCraft

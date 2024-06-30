@@ -129,7 +129,13 @@ namespace ForgeCraft {
 			static_cast<Derived*>(this)->Unbind();
 		}
 
+		uint32_t GetCount() const {
+      return static_cast<const Derived*>(this)->GetCount();
+    }
+
+
 		static IndexBuffer<Derived>* Create(GLuint* data, GLuint size);
 	};
+
 
 } // namespace ForgeCraft
