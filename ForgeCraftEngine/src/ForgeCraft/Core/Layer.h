@@ -13,7 +13,7 @@ namespace ForgeCraft {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void Update() {}
 		virtual void Render() {};
 		virtual void OnEvent(Event& event) {}
 

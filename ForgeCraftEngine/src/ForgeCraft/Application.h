@@ -25,9 +25,9 @@
 #include <ForgeCraft/Renderer/RenderCommand.h>
 
 //Camera
-#include "Renderer/Camera/Camera.h"
-#include "Renderer/Camera/CameraManager.h"
-#include "Renderer/Camera/Orthographic2DCamera.h"
+#include "ForgeCraft/Renderer/Camera/Camera.h"
+#include "ForgeCraft/Renderer/Camera/CameraManager.h"
+#include "ForgeCraft/Renderer/Camera/Orthographic2DCamera.h"
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 

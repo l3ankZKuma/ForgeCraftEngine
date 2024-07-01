@@ -192,7 +192,7 @@ namespace ForgeCraft {
 
 
       for (Layer* layer : m_layerStack) {
-        layer->OnUpdate();
+        layer->Update();
       }
 
       m_imguiLayer->Begin();
