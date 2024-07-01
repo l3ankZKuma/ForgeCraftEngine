@@ -133,6 +133,7 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Core\Time.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ForgeCraft\Application.cpp">
@@ -142,9 +143,6 @@
       <Filter>ForgeCraft\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Core\LayerStack.cpp">
-      <Filter>ForgeCraft\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ForgeCraft\Core\TimeStep.cpp">
       <Filter>ForgeCraft\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Imgui\ImguiBuild.cpp">

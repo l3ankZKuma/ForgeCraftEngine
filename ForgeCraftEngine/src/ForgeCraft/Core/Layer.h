@@ -2,6 +2,7 @@
 
 #include "ForgeCraft/Core.h"
 #include "ForgeCraft/Events/Event.h"
+#include"ForgeCraft/Core/TimeStep.h"
 
 
 namespace ForgeCraft {
@@ -13,7 +14,7 @@ namespace ForgeCraft {
 
 		virtual void OnAttach() = 0;
 		virtual void OnDetach() = 0;
-		virtual void Update() = 0;
+		virtual void Update(TimeStep ts) = 0;
 		virtual void Render() = 0;
 		virtual void OnEvent(Event& event) = 0;
 

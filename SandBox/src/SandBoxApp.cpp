@@ -1,5 +1,4 @@
 #include <ForgeCraft.h>
-#include <array>
 
 class Layers : public ForgeCraft::Layer {
 public:
@@ -29,7 +28,9 @@ public:
     }
   }
 
-  void Update() override {
+  void Update(ForgeCraft::TimeStep ts) override {
+
+    dt = ts;
     ForgeCraft::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
     ForgeCraft::RenderCommand::Clear();
 
@@ -54,19 +55,19 @@ public:
       [this](ForgeCraft::KeyPressedEvent& e) {
         if (e.GetKeyCode() == GLFW_KEY_LEFT) {
           const auto& vp = m_camera.GetPosition();
-          m_camera.SetPosition({ vp.x + 0.1f, vp.y, vp.z });
+          m_camera.SetPosition({ vp.x + 5.f *dt, vp.y, vp.z });
         }
         if (e.GetKeyCode() == GLFW_KEY_RIGHT) {
           const auto& vp = m_camera.GetPosition();
-          m_camera.SetPosition({ vp.x - 0.1f, vp.y, vp.z });
+          m_camera.SetPosition({ vp.x - 5.f *dt, vp.y, vp.z });
         }
         if (e.GetKeyCode() == GLFW_KEY_UP) {
           const auto& vp = m_camera.GetPosition();
-          m_camera.SetPosition({ vp.x, vp.y + 0.1f, vp.z });
+          m_camera.SetPosition({ vp.x, vp.y - 5.f *dt, vp.z });
         }
         if (e.GetKeyCode() == GLFW_KEY_DOWN) {
           const auto& vp = m_camera.GetPosition();
-          m_camera.SetPosition({ vp.x, vp.y - 0.1f, vp.z });
+          m_camera.SetPosition({ vp.x, vp.y + 5.f*dt, vp.z });
         }
         return false;
       }
@@ -169,6 +170,9 @@ private:
   };
 
   std::array<GLuint, 3> m_indices2 = { 0, 1, 2 };
+
+  //Time
+  float dt{ 0.f };
 };
 
 class Sandbox : public ForgeCraft::Application {

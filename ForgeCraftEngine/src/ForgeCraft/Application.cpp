@@ -3,6 +3,7 @@
 #include "fcpch.h"
 #include "Application.h"
 
+
 namespace ForgeCraft {
 
   Application* Application::s_instance = nullptr;
@@ -38,12 +39,18 @@ namespace ForgeCraft {
   }
 
   void Application::Run() {
+
+    TimeStep timeStep;
+
     while (m_running) {
-      RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
-      RenderCommand::Clear();
+
+      float time = (float)glfwGetTime();
+      timeStep = time - m_lastFrameTime;
+      m_lastFrameTime = time;
+
 
       for (Layer* layer : m_layerStack) {
-        layer->Update();
+        layer->Update(timeStep);
       }
 
       m_imguiLayer->Begin();

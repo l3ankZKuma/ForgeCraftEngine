@@ -31,6 +31,11 @@
 #include <ForgeCraft/Renderer/Camera/Orthographic2DCamera.h>
 
 
+//Time
+#include"ForgeCraft/Core/TimeStep.h"
+
+
+
 namespace ForgeCraft {
   using VAO = VertexArray<OpenGLVertexArray>;
   using VBO = VertexBuffer<OpenGLVertexBuffer>;
@@ -73,6 +78,10 @@ namespace ForgeCraft {
 
     // Camera
     Orthographic2DCamera m_camera{ -1.6f, 1.6f, -0.9f, 0.9f };
+
+
+    //Time
+    float m_lastFrameTime = 0.0f;
   };
 
   Application * CreateApplication();

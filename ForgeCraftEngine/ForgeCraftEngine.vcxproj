@@ -163,6 +163,7 @@
     <ClInclude Include="src\ForgeCraft\Core\Layer.h" />
     <ClInclude Include="src\ForgeCraft\Core\LayerStack.h" />
     <ClInclude Include="src\ForgeCraft\Core\MouseCodes.h" />
+    <ClInclude Include="src\ForgeCraft\Core\Time.h" />
     <ClInclude Include="src\ForgeCraft\Core\TimeStep.h" />
     <ClInclude Include="src\ForgeCraft\EntryPoint.h" />
     <ClInclude Include="src\ForgeCraft\Events\ApplicationEvent.h" />
@@ -195,7 +196,6 @@
     <ClCompile Include="src\ForgeCraft\Application.cpp" />
     <ClCompile Include="src\ForgeCraft\Core\Layer.cpp" />
     <ClCompile Include="src\ForgeCraft\Core\LayerStack.cpp" />
-    <ClCompile Include="src\ForgeCraft\Core\TimeStep.cpp" />
     <ClCompile Include="src\ForgeCraft\Imgui\ImguiBuild.cpp" />
     <ClCompile Include="src\ForgeCraft\Imgui\ImguiLayer.cpp" />
     <ClCompile Include="src\ForgeCraft\Log.cpp" />
