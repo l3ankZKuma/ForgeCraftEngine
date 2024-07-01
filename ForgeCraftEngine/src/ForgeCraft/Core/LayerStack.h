@@ -10,7 +10,7 @@ namespace ForgeCraft {
   class FORGECRAFT_API LayerStack {
   public:
     LayerStack();
-    ~LayerStack();
+    ~LayerStack() ;
 
     void PushLayer(Layer* layer);
     void PushOverlay(Layer* overlay);

@@ -5,6 +5,7 @@
 #include"ForgeCraft/Log.h"
 #include"ForgeCraft/Core/Layer.h"
 #include"ForgeCraft/Imgui/ImguiLayer.h"
+#include"ForgeCraft/Core.h"
 
 //---------------------------------
 //        |Renderer|

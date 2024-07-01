@@ -4,6 +4,17 @@
 #include <ForgeCraft/Log.h>
 
 namespace ForgeCraft {
+	class OpenGLVertexBuffer;
+	class OpenGLIndexBuffer;
+}
+
+
+namespace ForgeCraft {
+
+
+
+
+
 
 	enum class ShaderDataType {
 		None = 0, Float, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool
@@ -113,7 +124,7 @@ namespace ForgeCraft {
 		}
 		
 		
-		static VertexBuffer<Derived>* Create(GLfloat* data, GLuint size);
+		static OpenGLVertexBuffer* Create(GLfloat* data, GLuint size);
 
 	};
 
@@ -134,7 +145,7 @@ namespace ForgeCraft {
     }
 
 
-		static IndexBuffer<Derived>* Create(GLuint* data, GLuint size);
+		static OpenGLIndexBuffer* Create(GLuint* data, GLuint size);
 	};
 
 

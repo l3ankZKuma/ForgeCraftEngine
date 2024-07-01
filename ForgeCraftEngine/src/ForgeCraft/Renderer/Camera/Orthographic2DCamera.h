@@ -1,10 +1,11 @@
 #pragma once
 
+#include <ForgeCraft/Core.h>
 #include <ForgeCraft/Renderer/Camera/Camera.h>
 
 namespace ForgeCraft {
 
-  class Orthographic2DCamera : public Camera<Orthographic2DCamera> {
+  class FORGECRAFT_API Orthographic2DCamera : public Camera<Orthographic2DCamera> {
   public:
 
     Orthographic2DCamera(float left, float right, float bottom, float top);

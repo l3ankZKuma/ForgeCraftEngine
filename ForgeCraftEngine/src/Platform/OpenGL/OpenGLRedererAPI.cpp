@@ -21,7 +21,7 @@ namespace ForgeCraft {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   }
 
-  void OpenGLRendererAPI::DrawIndexed(VAO *vertexArray) {
+  void OpenGLRendererAPI::DrawIndexed(OpenGLVertexArray *vertexArray) {
 
     const auto count = vertexArray->GetIndexBuffer()->GetCount();
 

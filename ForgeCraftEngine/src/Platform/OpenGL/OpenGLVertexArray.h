@@ -6,8 +6,6 @@
 
 namespace ForgeCraft {
 
-  using VBO = VertexBuffer<OpenGLVertexBuffer>;
-  using EBO = IndexBuffer<OpenGLIndexBuffer>;
 
 
   class FORGECRAFT_API OpenGLVertexArray : public VertexArray<OpenGLVertexArray> {
@@ -18,21 +16,21 @@ namespace ForgeCraft {
     void Bind();
     void Unbind();
 
-    void AddVertexBuffer(VBO* vertexBuffer);
-    void SetIndexBuffer(EBO* indexBuffer);
+    void AddVertexBuffer(OpenGLVertexBuffer* vertexBuffer);
+    void SetIndexBuffer(OpenGLIndexBuffer* indexBuffer);
 
-    const std::vector<VBO*> & GetVertexBuffer() const  {
+    const std::vector<OpenGLVertexBuffer*> & GetVertexBuffer() const  {
       return m_vertexBuffers;
     }
 
-    const EBO *  GetIndexBuffer() const {
+    const OpenGLIndexBuffer *  GetIndexBuffer() const {
       return m_indexBuffers;
     }
 
   private:
     GLuint m_vao;
-    std::vector<VBO*> m_vertexBuffers;
-    EBO *  m_indexBuffers;
+    std::vector<OpenGLVertexBuffer*> m_vertexBuffers;
+    OpenGLIndexBuffer *  m_indexBuffers;
   };
 
   static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {

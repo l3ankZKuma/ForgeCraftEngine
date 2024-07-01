@@ -20,7 +20,7 @@ namespace ForgeCraft {
     glBindVertexArray(0);
   }
 
-  void OpenGLVertexArray::AddVertexBuffer(VBO* vertexBuffer) {
+  void OpenGLVertexArray::AddVertexBuffer(OpenGLVertexBuffer* vertexBuffer) {
     glBindVertexArray(m_vao);
     vertexBuffer->Bind();
     const auto& layout = vertexBuffer->GetLayout();
@@ -40,7 +40,7 @@ namespace ForgeCraft {
     m_vertexBuffers.push_back(vertexBuffer);
   }
 
-  void OpenGLVertexArray::SetIndexBuffer(EBO* indexBuffer) {
+  void OpenGLVertexArray::SetIndexBuffer(OpenGLIndexBuffer* indexBuffer) {
     glBindVertexArray(m_vao);
     indexBuffer->Bind();
    
@@ -50,6 +50,5 @@ namespace ForgeCraft {
   }
 
 
-  template class VertexArray<OpenGLVertexArray>;  // Explicit instantiation
 
 }  // namespace ForgeCraft

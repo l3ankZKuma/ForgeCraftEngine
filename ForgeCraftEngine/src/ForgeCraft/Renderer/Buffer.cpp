@@ -2,10 +2,12 @@
 #include "Buffer.h"
 #include "Platform/OpenGL/OpenGLBuffer.h"
 
+
+
 namespace ForgeCraft {
 
   template<>
-  VertexBuffer<OpenGLVertexBuffer>* VertexBuffer<OpenGLVertexBuffer>::Create(GLfloat* data, GLuint size) {
+  OpenGLVertexBuffer* VertexBuffer<OpenGLVertexBuffer>::Create(GLfloat* data, GLuint size) {
     switch (RendererAPI<OpenGLVertexBuffer>::GetAPI()) {
     case RendererAPI<OpenGLVertexBuffer>::API::None:
       FC_CORE_WARN( "RendererAPI::None is not supported");
@@ -18,7 +20,7 @@ namespace ForgeCraft {
   }
 
   template<>
-  IndexBuffer<OpenGLIndexBuffer>* IndexBuffer<OpenGLIndexBuffer>::Create(GLuint* data, GLuint size) {
+  OpenGLIndexBuffer* IndexBuffer<OpenGLIndexBuffer>::Create(GLuint* data, GLuint size) {
     switch (RendererAPI<OpenGLIndexBuffer>::GetAPI()) {
     case RendererAPI<OpenGLIndexBuffer>::API::None:
       FC_CORE_WARN( "RendererAPI::None is not supported");

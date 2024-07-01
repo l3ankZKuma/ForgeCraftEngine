@@ -1,4 +1,6 @@
 #pragma once
+
+#include<ForgeCraft/Core.h>
 #include <ForgeCraft/Renderer/Buffer.h>
 
 namespace ForgeCraft {
@@ -23,7 +25,7 @@ namespace ForgeCraft {
     BufferLayout m_layout;
   };
 
-  class OpenGLIndexBuffer : public IndexBuffer<OpenGLIndexBuffer> {
+  class FORGECRAFT_API OpenGLIndexBuffer : public IndexBuffer<OpenGLIndexBuffer> {
   public:
     OpenGLIndexBuffer(GLuint* data, GLuint size);
     ~OpenGLIndexBuffer();

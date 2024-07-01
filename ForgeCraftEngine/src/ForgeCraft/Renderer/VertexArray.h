@@ -1,16 +1,21 @@
 #pragma once
 
 #include <ForgeCraft/Renderer/RendererAPI.h>
-#include <ForgeCraft/Renderer/Buffer.h>
-#include<Platform/OpenGL/OpenGLBuffer.h>
+#include<ForgeCraft/Core.h>
 
+namespace ForgeCraft {
+
+  class OpenGLVertexArray;
+  class OpenGLVertexBuffer;
+  class OpenGLIndexBuffer;
+
+}
 
 
 namespace ForgeCraft {
 
+  
 
-  using VBO = VertexBuffer<OpenGLVertexBuffer>;
-  using EBO = IndexBuffer<OpenGLIndexBuffer>;
 
 
   template<typename Derived>
@@ -36,18 +41,18 @@ namespace ForgeCraft {
     }
 
     
-    const std::vector<VBO*> & GetVertexBuffer() const {
+    const std::vector<OpenGLVertexBuffer*> & GetVertexBuffer() const {
       return static_cast<const Derived*>(this)->GetVertexBuffer();
     }
 
 
-    const EBO * GetIndexBuffer() const {
+    const OpenGLIndexBuffer * GetIndexBuffer() const {
       return static_cast<const Derived*>(this)->GetIndexBuffer();
     }
 
 
 
-    static VertexArray<Derived>* Create();
+    static OpenGLVertexArray * Create();
   };
 
 

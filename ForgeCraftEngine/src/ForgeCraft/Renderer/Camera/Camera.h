@@ -7,7 +7,7 @@
 namespace ForgeCraft {
 
   template<typename Derived>
-  class Camera {
+  class FORGECRAFT_API Camera {
   public:
     
     ~Camera() = default;

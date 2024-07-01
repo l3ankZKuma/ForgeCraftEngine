@@ -1,11 +1,12 @@
 #pragma once
 
+#include<ForgeCraft/Core.h>
 #include <ForgeCraft/Renderer/Shader.h>
 #include <glm/gtc/type_ptr.hpp> // For glm::value_ptr
 
 namespace ForgeCraft {
 
-  class OpenGLShader : public Shader<OpenGLShader> {
+  class  FORGECRAFT_API OpenGLShader : public Shader<OpenGLShader> {
   public:
     OpenGLShader(const char* vertexSrc, const char* fragmentSrc) noexcept;
     ~OpenGLShader() noexcept;
@@ -35,6 +36,10 @@ namespace ForgeCraft {
 
     inline void SetMat4Impl(const char* name, const glm::mat4& value) noexcept {
       glUniformMatrix4fv(glGetUniformLocation(m_rendererID, name), 1, GL_FALSE, glm::value_ptr(value));
+    }
+    
+    inline void SetIntArrayImpl(const char* name, int* values, uint32_t count) noexcept {
+      glUniform1iv(glGetUniformLocation(m_rendererID, name), count, values);
     }
 
   private:

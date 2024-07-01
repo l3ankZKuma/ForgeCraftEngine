@@ -1,13 +1,12 @@
 #include "fcpch.h"
 #include "VertexArray.h"
 
-#include <Platform/OpenGL/OpenGLVertexArray.h>
 
+ #include "Platform/OpenGL/OpenGLVertexArray.h"
 
 namespace ForgeCraft {
 
-    template<>
-    VertexArray<OpenGLVertexArray>* VertexArray<OpenGLVertexArray>::Create() {
+    OpenGLVertexArray* VertexArray<OpenGLVertexArray>::Create() {
         switch (RendererAPI<OpenGLVertexArray>::GetAPI()) {
         case RendererAPI<OpenGLVertexArray>::API::None:
             FC_CORE_WARN("RendererAPI::None is not supported");
@@ -20,7 +19,5 @@ namespace ForgeCraft {
     }
 
 
-    template class VertexBuffer<OpenGLVertexBuffer>;
-    template class IndexBuffer<OpenGLIndexBuffer>;
 
 }  // namespace ForgeCraft

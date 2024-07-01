@@ -1,15 +1,14 @@
 #pragma once
 
 #include <ForgeCraft/Renderer/RendererAPI.h>
-#include <ForgeCraft/Renderer/VertexArray.h>
+#include<Platform/OpenGL/OpenGLVertexArray.h>
 
 #include<Platform/OpenGL/OpenGLRedererAPI.h>
 
 namespace ForgeCraft {
 
-  using VAO = VertexArray<OpenGLVertexArray>;
 
-  class RenderCommand {
+  class FORGECRAFT_API RenderCommand {
   public:
 
     inline static void SetClearColor(const glm::vec4 &color) {
@@ -21,7 +20,7 @@ namespace ForgeCraft {
     }
 
     // Static method to draw indexed vertex array
-    static void DrawIndexed(VAO *vertexArray) {
+    static void DrawIndexed(OpenGLVertexArray *vertexArray) {
       s_RendererAPI->DrawIndexed(vertexArray);
     }
 

@@ -1,3 +1,5 @@
+// Application.h
+
 #pragma once
 
 #include <ForgeCraft/Core.h>
@@ -8,7 +10,6 @@
 #include <ForgeCraft/Imgui/ImguiLayer.h>
 #include <Platform/Windows/WindowsWindow.h>
 
-
 // Shader
 #include <Platform/OpenGL/OpenGLShader.h>
 
@@ -17,19 +18,18 @@
 #include <Platform/OpenGL/OpenGLBuffer.h>
 
 // Vertex Array
-#include<ForgeCraft/Renderer/VertexArray.h>
-#include<Platform/OpenGL/OpenGLVertexArray.h>
+#include <ForgeCraft/Renderer/VertexArray.h>
+#include <Platform/OpenGL/OpenGLVertexArray.h>
 
 // Renderer
 #include <ForgeCraft/Renderer/Renderer.h>
 #include <ForgeCraft/Renderer/RenderCommand.h>
 
-//Camera
-#include "ForgeCraft/Renderer/Camera/Camera.h"
-#include "ForgeCraft/Renderer/Camera/CameraManager.h"
-#include "ForgeCraft/Renderer/Camera/Orthographic2DCamera.h"
+// Camera
+#include <ForgeCraft/Renderer/Camera/Camera.h>
+#include <ForgeCraft/Renderer/Camera/CameraManager.h>
+#include <ForgeCraft/Renderer/Camera/Orthographic2DCamera.h>
 
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 namespace ForgeCraft {
   using VAO = VertexArray<OpenGLVertexArray>;
@@ -56,6 +56,8 @@ namespace ForgeCraft {
     void PushLayer(Layer* layer);
     void PushOverlay(Layer* overlay);
 
+    bool &GetRunning() { return m_running; }
+
     inline WindowsWindow& GetWindow() { return *m_window; }
     inline static Application& Get() { return *s_instance; }
 
@@ -69,47 +71,9 @@ namespace ForgeCraft {
 
     static Application* s_instance;
 
-
     // Camera
     Orthographic2DCamera m_camera{ -1.6f, 1.6f, -0.9f, 0.9f };
-   // CameraManager m_cameraManager;
-
-
-    // Triangle
-    OpenGLShader* m_shader;
-
-    VBO* m_vbo;
-    EBO* m_ebo;
-    VAO* m_vao;
-
-    GLfloat m_vertices[3 * 6] = {
-      // positions        //color
-      -0.5f, -0.5f, 0.0f, 0.0 , 1.0, 0.0,
-      0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,
-      0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f,
-    };
-
-    GLuint m_indices[3] = {
-      0, 1, 2
-    };
-
-    OpenGLShader* m_shader2;
-    VBO* m_vbo2;
-    EBO* m_ebo2;
-    VAO* m_vao2;
-
-    GLfloat m_vertices2[3 * 6] = {
-      // positions        // color
-      -0.5f,  0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
-       0.5f,  0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
-       0.0f, -0.5f, 0.0f, 1.0f, 1.0f, 0.0f,
-    };
-
-    GLuint m_indices2[3] = {
-      0, 1, 2
-    };
-
   };
 
-  Application* CreateApplication();
+  Application * CreateApplication();
 }
