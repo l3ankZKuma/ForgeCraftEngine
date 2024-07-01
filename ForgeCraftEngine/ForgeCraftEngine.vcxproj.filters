@@ -16,6 +16,9 @@
     <Filter Include="ForgeCraft\Renderer">
       <UniqueIdentifier>{EEBE1659-5A20-F466-E38D-3A194FEE2A26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ForgeCraft\Renderer\Camera">
+      <UniqueIdentifier>{A67BDCCA-928B-889B-FB44-EDB9E7737734}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -49,6 +52,9 @@
     <ClInclude Include="src\ForgeCraft\Core\MouseCodes.h">
       <Filter>ForgeCraft\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Core\TimeStep.h">
+      <Filter>ForgeCraft\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\ForgeCraft\EntryPoint.h">
       <Filter>ForgeCraft</Filter>
     </ClInclude>
@@ -73,13 +79,34 @@
     <ClInclude Include="src\ForgeCraft\Renderer\Buffer.h">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\Camera\Camera.h">
+      <Filter>ForgeCraft\Renderer\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\Camera\CameraManager.h">
+      <Filter>ForgeCraft\Renderer\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\Camera\Orthographic2DCamera.h">
+      <Filter>ForgeCraft\Renderer\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\Camera\PerspectiveCamera.h">
+      <Filter>ForgeCraft\Renderer\Camera</Filter>
+    </ClInclude>
     <ClInclude Include="src\ForgeCraft\Renderer\GraphicsContext.h">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\RenderCommand.h">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\Renderer.h">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ForgeCraft\Renderer\RendererAPI.h">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ForgeCraft\Renderer\Shader.h">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForgeCraft\Renderer\VertexArray.h">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ForgeCraft\Window.h">
@@ -94,26 +121,18 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRedererAPI.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
-      <Filter>Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ForgeCraft\Renderer\VertexArray.h">
-      <Filter>ForgeCraft\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ForgeCraft\Renderer\Renderer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLRedererAPI.h" />
-    <ClInclude Include="src\ForgeCraft\Renderer\RenderCommand.h" />
-    <ClInclude Include="src\ForgeCraft\Core\TimeStep.h" />
-    <ClInclude Include="src\ForgeCraft\Renderer\Camera\Camera.h" />
-    <ClInclude Include="src\ForgeCraft\Renderer\Camera\Orthographic2DCamera.h" />
-    <ClInclude Include="src\ForgeCraft\Renderer\Camera\PerspectiveCamera.h" />
-    <ClInclude Include="src\ForgeCraft\Renderer\Camera\CameraManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ForgeCraft\Application.cpp">
@@ -123,6 +142,9 @@
       <Filter>ForgeCraft\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Core\LayerStack.cpp">
+      <Filter>ForgeCraft\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Core\TimeStep.cpp">
       <Filter>ForgeCraft\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Imgui\ImguiBuild.cpp">
@@ -137,13 +159,28 @@
     <ClCompile Include="src\ForgeCraft\Renderer\Buffer.cpp">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Renderer\Camera\Orthographic2DCamera.cpp">
+      <Filter>ForgeCraft\Renderer\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Renderer\Camera\PerspectiveCamera.cpp">
+      <Filter>ForgeCraft\Renderer\Camera</Filter>
+    </ClCompile>
     <ClCompile Include="src\ForgeCraft\Renderer\GraphicsContext.cpp">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Renderer\RenderCommand.cpp">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Renderer\Renderer.cpp">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Renderer\RendererAPI.cpp">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\Renderer\Shader.cpp">
+      <Filter>ForgeCraft\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ForgeCraft\Renderer\VertexArray.cpp">
       <Filter>ForgeCraft\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ForgeCraft\fcpch.cpp">
@@ -155,7 +192,13 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRedererAPI.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -164,17 +207,5 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
-      <Filter>Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ForgeCraft\Renderer\VertexArray.cpp">
-      <Filter>ForgeCraft\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ForgeCraft\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLRedererAPI.cpp" />
-    <ClCompile Include="src\ForgeCraft\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="src\ForgeCraft\Core\TimeStep.cpp" />
-    <ClCompile Include="src\ForgeCraft\Renderer\Camera\Orthographic2DCamera.cpp" />
-    <ClCompile Include="src\ForgeCraft\Renderer\Camera\PerspectiveCamera.cpp" />
   </ItemGroup>
 </Project>

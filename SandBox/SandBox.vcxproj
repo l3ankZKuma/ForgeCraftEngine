@@ -74,6 +74,9 @@
     <TargetName>Sandbox</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>true</VcpkgEnabled>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -139,6 +142,9 @@
   <ItemGroup>
     <ProjectReference Include="..\ForgeCraftEngine\ForgeCraftEngine.vcxproj">
       <Project>{5EC3D805-4ABC-F757-73EE-DCDC5F46D763}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ForgeCraftEngine\vendor\imgui\imgui.vcxproj">
+      <Project>{0098A80F-6CAC-D0C0-352E-7420A101CDF1}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

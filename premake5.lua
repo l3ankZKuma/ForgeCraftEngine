@@ -1,3 +1,4 @@
+
 workspace "ForgeCraftEngine"
     architecture "x64"
     startproject "Sandbox"
@@ -18,10 +19,7 @@ IncludeDir["GLFW"] = "ForgeCraftEngine/vendor/GLFW/include"
 IncludeDir["spdlog"] = "ForgeCraftEngine/vendor/spdlog/include"
 IncludeDir["imgui"] = "ForgeCraftEngine/vendor/imgui"
 IncludeDir["glm"] = "ForgeCraftEngine/vendor/glm"
-IncludeDir["EASTL"] = "ForgeCraftEngine/vendor/EASTL/include"
-IncludeDir["EABase"] = "ForgeCraftEngine/vendor/EASTL/test/packages/EABase/include/Common"
-IncludeDir["EAAssert"] = "ForgeCraftEngine/vendor/EASTL/test/packages/EAAssert/include"
-IncludeDir["EASTLTest"] = "ForgeCraftEngine/vendor/EASTL/test/packages/EASTLTest/include"
+
 
 -- Include the projects
 group "Dependencies"
@@ -29,43 +27,6 @@ group "Dependencies"
     include "ForgeCraftEngine/vendor/glad"
     include "ForgeCraftEngine/vendor/imgui"
 group ""
-
-project "EASTL"
-    location "ForgeCraftEngine/vendor/EASTL"
-    kind "StaticLib"
-    language "C++"
-    cppdialect "C++17"
-    staticruntime "on"
-
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-    files
-    {
-        "ForgeCraftEngine/vendor/EASTL/source/**.cpp",
-        "ForgeCraftEngine/vendor/EASTL/include/**.h"
-    }
-
-    includedirs
-    {
-        "ForgeCraftEngine/vendor/EASTL/include",
-        "ForgeCraftEngine/vendor/EASTL/test/packages/EABase/include/Common",
-        "ForgeCraftEngine/vendor/EASTL/test/packages/EAAssert/include",
-        "ForgeCraftEngine/vendor/EASTL/test/packages/EASTLTest/include"
-    }
-
-    filter "system:windows"
-        systemversion "latest"
-
-    filter "configurations:Debug"
-        defines "EASTL_DEBUG"
-        runtime "Debug"
-        symbols "on"
-
-    filter "configurations:Release"
-        defines "EASTL_RELEASE"
-        runtime "Release"
-        optimize "on"
 
 project "ForgeCraftEngine"
     location "ForgeCraftEngine"
@@ -91,11 +52,7 @@ project "ForgeCraftEngine"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.spdlog}",
         "%{IncludeDir.imgui}",
-        "%{IncludeDir.glm}",
-        "%{IncludeDir.EASTL}",
-        "%{IncludeDir.EABase}",
-        "%{IncludeDir.EAAssert}",
-        "%{IncludeDir.EASTLTest}"
+        "%{IncludeDir.glm}"
     }
 
     links
@@ -103,7 +60,6 @@ project "ForgeCraftEngine"
         "glad",
         "GLFW",
         "imgui",
-        "EASTL",
         "opengl32.lib"
     }
 
@@ -157,16 +113,13 @@ project "Sandbox"
     {
         "ForgeCraftEngine/vendor/spdlog/include",
         "ForgeCraftEngine/src",
-        "%{IncludeDir.imgui}",
-        "%{IncludeDir.EASTL}",
-        "%{IncludeDir.EABase}",
-        "%{IncludeDir.EAAssert}",
-        "%{IncludeDir.EASTLTest}"
+        "%{IncludeDir.imgui}"
     }
 
     links
     {
         "ForgeCraftEngine",
+        "imgui"
     }
 
     filter "system:windows"

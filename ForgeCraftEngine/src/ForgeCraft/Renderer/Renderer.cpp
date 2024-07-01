@@ -4,9 +4,9 @@
 namespace ForgeCraft {
 
 
-  void Renderer::BeginScene() {
+  void Renderer::BeginScene(const Orthographic2DCamera& camera) {
 
-
+    s_SceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
 
   }
 
@@ -14,8 +14,15 @@ namespace ForgeCraft {
 
   }
 
-  void Renderer::Submit(VAO* vertexArray) {
+  void Renderer::Submit(VAO* vertexArray,OpenGLShader *shader) {
+    shader->Bind();
+
+    shader->SetMat4("vp", s_SceneData->ViewProjectionMatrix);
+
+    vertexArray->Bind();
     RenderCommand::DrawIndexed(vertexArray);
+    shader->UnBind();
+    
   }
 
 }

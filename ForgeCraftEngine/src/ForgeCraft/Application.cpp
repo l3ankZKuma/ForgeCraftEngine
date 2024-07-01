@@ -172,28 +172,16 @@ namespace ForgeCraft {
 
 
 
-      Renderer::BeginScene();
+      Renderer::BeginScene(m_camera);
 
 
       //----------------------------------------------------------------------------
       {
 
 
-        // Render the first triangle
-        m_shader->Bind();
+        Renderer::Submit(m_vao,m_shader);
 
-        m_vao->Bind();
-        Renderer::Submit(m_vao);
-
-
-        m_shader->UnBind();
-
-        // Render the second triangle
-        m_shader2->Bind();
-        m_vao2->Bind();
-        Renderer::Submit(m_vao2);
-
-        m_shader2->UnBind();
+        Renderer::Submit(m_vao2,m_shader2);
 
 
       }
