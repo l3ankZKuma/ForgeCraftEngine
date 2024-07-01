@@ -109,6 +109,11 @@
     <ClInclude Include="src\ForgeCraft\Renderer\Renderer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRedererAPI.h" />
     <ClInclude Include="src\ForgeCraft\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\ForgeCraft\Core\TimeStep.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\Camera\Camera.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\Camera\Orthographic2DCamera.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\Camera\PerspectiveCamera.h" />
+    <ClInclude Include="src\ForgeCraft\Renderer\Camera\CameraManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ForgeCraft\Application.cpp">
@@ -168,5 +173,8 @@
     <ClCompile Include="src\ForgeCraft\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRedererAPI.cpp" />
     <ClCompile Include="src\ForgeCraft\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\ForgeCraft\Core\TimeStep.cpp" />
+    <ClCompile Include="src\ForgeCraft\Renderer\Camera\Orthographic2DCamera.cpp" />
+    <ClCompile Include="src\ForgeCraft\Renderer\Camera\PerspectiveCamera.cpp" />
   </ItemGroup>
 </Project>

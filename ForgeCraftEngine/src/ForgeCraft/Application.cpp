@@ -5,13 +5,17 @@ namespace ForgeCraft {
 
   Application* Application::s_instance = nullptr;
 
-  Application::Application() {
+  Application::Application(){
     s_instance = this;
     m_window = WindowsWindow::Create();
     m_window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
     m_imguiLayer = new ImguiLayer();
     m_imguiLayer->OnAttach();
+
+    //----------------------------------[Camera] ----------------------------------------
+
+   // m_cameraManager.SetActiveCamera(m_camera);
 
     //----------------------------------(1)---------------------------------------------
     // Initialize the first shader
@@ -20,11 +24,13 @@ namespace ForgeCraft {
 
       layout(location = 0) in vec3 aPos;
       layout(location = 1) in vec3 aColor;
+      
+      uniform mat4 vp;
 
       out vec3 color;
 
       void main() {
-        gl_Position = vec4(aPos, 1.0);
+      gl_Position = /*projection*view*model*/vp * vec4(aPos, 1.0);
         color = aColor;
       }
     )", R"(
@@ -67,10 +73,14 @@ namespace ForgeCraft {
       layout(location = 0) in vec3 aPos;
       layout(location = 1) in vec3 aColor;
 
+      uniform mat4 vp;  
+
+      
+
       out vec3 color;
 
       void main() {
-        gl_Position = vec4(aPos, 1.0);
+        gl_Position = /* projection*view*model*/vp * vec4(aPos, 1.0);
         color = aColor;
       }
     )", R"(
@@ -104,6 +114,20 @@ namespace ForgeCraft {
 
     m_vao2->AddVertexBuffer(m_vbo2);
     m_vao2->SetIndexBuffer(m_ebo2);
+
+
+   /* const auto& vp = std::visit([](auto&& camera) -> const auto& {
+      return camera.GetViewProjectionMatrix();
+      }, m_cameraManager.GetActiveCamera());*/
+
+    const auto & vp = m_camera.GetViewProjectionMatrix();
+
+    m_shader->Bind();
+    m_shader->SetMat4("vp", vp);
+
+    m_shader2->Bind();
+    m_shader2->SetMat4("vp", vp);
+
     //--------------------------------------------------------------------------------
   }
 
@@ -151,6 +175,7 @@ namespace ForgeCraft {
       Renderer::BeginScene();
 
 
+      //----------------------------------------------------------------------------
       {
 
 
@@ -172,6 +197,7 @@ namespace ForgeCraft {
 
 
       }
+      //----------------------------------------------------------------------------
 
       Renderer::EndScene();
 

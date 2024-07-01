@@ -14,8 +14,8 @@ namespace ForgeCraft {
 
   }
 
-
-  void Renderer::Submit(VAO * vertexArray) {
+  void Renderer::Submit(VAO* vertexArray) {
     RenderCommand::DrawIndexed(vertexArray);
   }
+
 }

@@ -24,6 +24,11 @@
 #include <ForgeCraft/Renderer/Renderer.h>
 #include <ForgeCraft/Renderer/RenderCommand.h>
 
+//Camera
+#include "Renderer/Camera/Camera.h"
+#include "Renderer/Camera/CameraManager.h"
+#include "Renderer/Camera/Orthographic2DCamera.h"
+
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 namespace ForgeCraft {
@@ -35,6 +40,7 @@ namespace ForgeCraft {
 namespace ForgeCraft {
   class WindowsWindow;
   class ImguiLayer;
+  class Orthographic2DCamera;
 }
 
 namespace ForgeCraft {
@@ -62,6 +68,12 @@ namespace ForgeCraft {
     bool OnWindowClose(WindowCloseEvent& e);
 
     static Application* s_instance;
+
+
+    // Camera
+    Orthographic2DCamera m_camera{ -1.6f, 1.6f, -0.9f, 0.9f };
+   // CameraManager m_cameraManager;
+
 
     // Triangle
     OpenGLShader* m_shader;
@@ -96,6 +108,7 @@ namespace ForgeCraft {
     GLuint m_indices2[3] = {
       0, 1, 2
     };
+
   };
 
   Application* CreateApplication();
