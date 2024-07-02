@@ -17,7 +17,8 @@ public:
     OnDetach();
   }
 
-  void OnAttach() override {}
+  void OnAttach() override {
+  }
 
   void OnDetach() override {
     for (size_t i = 0; i < m_vao.size(); ++i) {
@@ -29,20 +30,36 @@ public:
   }
 
   void Update(ForgeCraft::TimeStep ts) override {
-
     dt = ts;
+
+    FC_CORE_TRACE("FPS : {0} ", 1 / ts.GetSeconds());
+
     ForgeCraft::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
     ForgeCraft::RenderCommand::Clear();
 
     ForgeCraft::Renderer::BeginScene(m_camera);
 
-    for (size_t i = 0; i < m_vao.size(); ++i) {
-      if (m_shader[i] && m_vao[i]) {
-        m_shader[i]->Bind();
-        ForgeCraft::Renderer::Submit(m_vao[i], m_shader[i]);
+    {
+      for (size_t i = 0; i < 20; ++i) {
+        for (size_t j = 0; j < 20; ++j) {
+          glm::mat4 transform = glm::mat4(1.0f);  // Ensure transform is declared
+          transform = glm::translate(transform, glm::vec3(i * 0.11f, j * 0.11f, 0.0f));
+
+          if ((i + j) & 1) {
+            m_shader[0]->Bind();
+            m_shader[0]->SetFloat4("color", this->greenColor);  
+          }
+          else {
+            m_shader[0]->Bind();
+            m_shader[0]->SetFloat4("color", this->redColor);
+
+          }
+
+          ForgeCraft::Renderer::Submit(m_vao[0], m_shader[0], transform * m_scale[0]);
+
+        }
       }
     }
-
     ForgeCraft::Renderer::EndScene();
   }
 
@@ -55,62 +72,61 @@ public:
       [this](ForgeCraft::KeyPressedEvent& e) {
         if (e.GetKeyCode() == GLFW_KEY_LEFT) {
           const auto& vp = m_camera.GetPosition();
-          m_camera.SetPosition({ vp.x + 5.f *dt, vp.y, vp.z });
+          m_camera.SetPosition({ vp.x - 5.f * dt, vp.y, vp.z });
         }
         if (e.GetKeyCode() == GLFW_KEY_RIGHT) {
           const auto& vp = m_camera.GetPosition();
-          m_camera.SetPosition({ vp.x - 5.f *dt, vp.y, vp.z });
+          m_camera.SetPosition({ vp.x + 5.f * dt, vp.y, vp.z });
         }
         if (e.GetKeyCode() == GLFW_KEY_UP) {
           const auto& vp = m_camera.GetPosition();
-          m_camera.SetPosition({ vp.x, vp.y - 5.f *dt, vp.z });
+          m_camera.SetPosition({ vp.x, vp.y + 5.f * dt, vp.z });
         }
         if (e.GetKeyCode() == GLFW_KEY_DOWN) {
           const auto& vp = m_camera.GetPosition();
-          m_camera.SetPosition({ vp.x, vp.y + 5.f*dt, vp.z });
+          m_camera.SetPosition({ vp.x, vp.y - 5.f * dt, vp.z });
         }
+
         return false;
-      }
-    );
+      });
   }
 
 private:
+  glm::vec4 redColor{ 1.0f, 0.0f, 0.0f, 1.0f };
+  glm::vec4 greenColor{ 0.0f, 1.0f, 0.0f, 1.0f };
+
   void InitializeShaders() {
     m_shader[0] = new ForgeCraft::OpenGLShader(R"(
       #version 330 core
       layout(location = 0) in vec3 aPos;
-      layout(location = 1) in vec3 aColor;
       uniform mat4 vp;
-      out vec3 color;
+      uniform mat4 model;
       void main() {
-        gl_Position = vp * vec4(aPos, 1.0);
-        color = aColor;
+        gl_Position = vp * model * vec4(aPos, 1.0);
       }
     )", R"(
       #version 330 core
-      in vec3 color;
+      uniform vec4 color; 
       out vec4 fragColor;
       void main() {
-        fragColor = vec4(color, 1.0);
+        fragColor = color;
       }
     )");
 
     m_shader[1] = new ForgeCraft::OpenGLShader(R"(
       #version 330 core
       layout(location = 0) in vec3 aPos;
-      layout(location = 1) in vec3 aColor;
       uniform mat4 vp;
-      out vec3 color;
+      uniform mat4 model;
       void main() {
-        gl_Position = vp * vec4(aPos, 1.0);
-        color = aColor;
+        gl_Position = vp * model * vec4(aPos, 1.0);
       }
     )", R"(
       #version 330 core
-      in vec3 color;
+      uniform vec4 color;
       out vec4 fragColor;
       void main() {
-        fragColor = vec4(color, 1.0);
+        fragColor = color;
       }
     )");
   }
@@ -155,24 +171,35 @@ private:
   std::array<ForgeCraft::OpenGLVertexBuffer*, 2> m_vbo;
   std::array<ForgeCraft::OpenGLIndexBuffer*, 2> m_ebo;
 
-  std::array<GLfloat, 18> m_vertices1 = {
+  std::array<GLfloat, 24> m_vertices1 = {
     -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f,
     0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,
-    0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f
+    0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f,
+    -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f
   };
 
-  std::array<GLuint, 3> m_indices1 = { 0, 1, 2 };
+  std::array<GLuint, 6> m_indices1 = { 0, 1, 2, 2, 3, 0 };
 
-  std::array<GLfloat, 18> m_vertices2 = {
-    -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
-    0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
-    0.0f, -0.5f, 0.0f, 1.0f, 1.0f, 0.0f
+  std::array<GLfloat, 24> m_vertices2 = {
+    -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f,
+    0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,
+    0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f,
+    -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f
   };
 
-  std::array<GLuint, 3> m_indices2 = { 0, 1, 2 };
+  std::array<GLuint, 6> m_indices2 = { 0, 1, 2, 2, 3, 0 };
 
-  //Time
   float dt{ 0.f };
+
+  std::array<glm::mat4, 2> m_scale{
+    glm::scale(glm::mat4(1.0f), glm::vec3(0.1f, 0.1f, 0.1f)),
+    glm::scale(glm::mat4(1.0f), glm::vec3(0.1f, 0.1f, 0.1f))
+  };
+
+  std::array<glm::vec3, 2> m_velocity{
+    glm::vec3(0.5f, 0.f, 0.0f),
+    glm::vec3(-0.5f, 0.f, 0.0f)
+  };
 };
 
 class Sandbox : public ForgeCraft::Application {
@@ -180,9 +207,7 @@ public:
   Sandbox() {
     PushLayer(new Layers());
   }
-  ~Sandbox() {
-    
-  }
+  ~Sandbox() {}
 };
 
 ForgeCraft::Application* ForgeCraft::CreateApplication() {

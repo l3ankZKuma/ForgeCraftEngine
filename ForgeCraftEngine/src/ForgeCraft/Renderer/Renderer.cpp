@@ -14,9 +14,10 @@ namespace ForgeCraft {
 
   }
 
-  void Renderer::Submit(OpenGLVertexArray * vertexArray,OpenGLShader *shader) {
+  void Renderer::Submit(OpenGLVertexArray * vertexArray,OpenGLShader *shader,const glm::mat4 &transform) {
     shader->Bind();
 
+    shader->SetMat4("model",transform);
     shader->SetMat4("vp", s_SceneData->ViewProjectionMatrix);
 
     vertexArray->Bind();
